@@ -14,3 +14,4 @@ D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\Numerical
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.exe
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.pdb
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NCalc.dll
+D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csprojResolveAssemblyReference.cache
