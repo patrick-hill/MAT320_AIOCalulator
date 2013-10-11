@@ -11,9 +11,38 @@ namespace NumericalCalculator
 {
     public partial class MAT320_AIO_Calulator : Form
     {
+        private Calculator calc;
+
         public MAT320_AIO_Calulator()
         {
             InitializeComponent();
+            calc = new Calculator(this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // grab method, function, ranges, & tolerance
+            String method = methodComboBox.SelectedItem.ToString();
+            String function = functionTextBox.Text;
+            String ranges = rangesTextBox.Text;
+            String tolerance = toleranceComboBox.SelectedItem.ToString();
+
+            switch (method)
+            {
+                case "Bisection":
+                    calc.bisect(function, ranges, tolerance);
+                    Console.WriteLine("a");
+                    break;
+                case "Regula Falsi":
+                    Console.WriteLine("Regula Falsi");
+                    break;
+                case "Newtons Method":
+                    Console.WriteLine("Newtons Method");
+                    break;
+            }
+            //Bisection
+            //Regula Falsi
+            //Newtons Method
         }
     }
 }

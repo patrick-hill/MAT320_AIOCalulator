@@ -38,10 +38,12 @@
             this.toleranceComboBox = new System.Windows.Forms.ComboBox();
             this.outputTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // methodComboBox
             // 
+            this.methodComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.methodComboBox.FormattingEnabled = true;
             this.methodComboBox.Items.AddRange(new object[] {
             "Bisection",
@@ -67,6 +69,7 @@
             this.functionTextBox.Name = "functionTextBox";
             this.functionTextBox.Size = new System.Drawing.Size(186, 22);
             this.functionTextBox.TabIndex = 1;
+            this.functionTextBox.Text = "Pow(x, 4)-x-10";
             // 
             // label2
             // 
@@ -92,6 +95,7 @@
             this.rangesTextBox.Name = "rangesTextBox";
             this.rangesTextBox.Size = new System.Drawing.Size(186, 22);
             this.rangesTextBox.TabIndex = 2;
+            this.rangesTextBox.Text = "1,2";
             // 
             // label4
             // 
@@ -117,11 +121,15 @@
             // 
             // outputTextBox
             // 
+            this.outputTextBox.AcceptsReturn = true;
+            this.outputTextBox.AcceptsTab = true;
             this.outputTextBox.Location = new System.Drawing.Point(15, 285);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
+            this.outputTextBox.ReadOnly = true;
             this.outputTextBox.Size = new System.Drawing.Size(549, 414);
             this.outputTextBox.TabIndex = 8;
+            this.outputTextBox.WordWrap = false;
             // 
             // label5
             // 
@@ -132,11 +140,22 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Output";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(848, 185);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Calculate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MAT320_AIO_Calulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 711);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.toleranceComboBox);
@@ -165,8 +184,9 @@
         private System.Windows.Forms.TextBox rangesTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox toleranceComboBox;
-        private System.Windows.Forms.TextBox outputTextBox;
+        public System.Windows.Forms.TextBox outputTextBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
 
     }
 }
