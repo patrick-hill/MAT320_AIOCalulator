@@ -24,11 +24,11 @@ namespace NumericalCalculator
             Debug.WriteLine(_tolerance);
             Expression exp = new Expression(function);
             String[] ranges = range.Split(',');
-            double a = double.Parse(ranges[0]);
-            double b = double.Parse(ranges[1]);
-            double tolerance = double.Parse(_tolerance);
-            double current = 0;
-            double previous = a;
+            float a = float.Parse(ranges[0]);
+            float b = float.Parse(ranges[1]);
+            float tolerance = float.Parse(_tolerance);
+            float current = 0;
+            float previous = a;
 
             int xNum = 0;
             while (true)
@@ -45,13 +45,13 @@ namespace NumericalCalculator
             setLog(log);
         }
 
-        public double RegulaFalsiEquation(Expression exp, double a, double b, int xNum)
+        public float RegulaFalsiEquation(Expression exp, float a, float b, int xNum)
         {
             exp.Parameters["x"] = a;
-            double functionA = double.Parse(exp.Evaluate().ToString());
+            float functionA = float.Parse(exp.Evaluate().ToString());
             exp.Parameters["x"] = b;
-            double functionB = double.Parse(exp.Evaluate().ToString());
-            double result = ((a * functionB) - (b * functionA)) / (functionB - functionA);
+            float functionB = float.Parse(exp.Evaluate().ToString());
+            float result = ((a * functionB) - (b * functionA)) / (functionB - functionA);
             log += "x: " + xNum + " = ((" + a + " * " + functionB + ")" + " - (" + b + " * " + functionA + ")) / (" + functionB + " - " + functionA + ") = " + result + "\r\n";
             return result;
         }
@@ -89,6 +89,7 @@ namespace NumericalCalculator
                 cNew = (a + b) / 2;
 
                 // check tolerance
+                if (inTolerance(tolerance, c, newC))
                 bool withinTolerance = inTolerance(tolerance, c, cNew);
                 if (withinTolerance)
                     break;
@@ -104,18 +105,20 @@ namespace NumericalCalculator
             exp.Parameters["x"] = var;
             Object result = exp.Evaluate();
 
-            log += exp.ToString() + "\t" + "x=" + var + "\r\n";
+            log += "\t" + "x=" + var + "\r\n";
             log += "Result: " + result.ToString() + "\r\n";
             setLog(log);
-
+            
             return double.Parse(result.ToString());
         }
 
         bool inTolerance(double tolerance, double x, double y)
         {
+            bool inTolerance = (Math.Max(x, y) - Math.Min(x, y)) <= tolerance;
             log += "Checking tolerance: \t" + "Old: " + x + "\t" + "New: " + y + "\r\n";
+            log += "InTolerance? " + inTolerance + "\r\n";
             setLog(log);
-            return x - y < tolerance || y - x < tolerance;
+            return inTolerance;
         }
 
         void setLog(String log)
