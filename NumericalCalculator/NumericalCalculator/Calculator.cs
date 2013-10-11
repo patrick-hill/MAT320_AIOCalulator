@@ -81,10 +81,28 @@ namespace NumericalCalculator
                 fb = evaluate(exp, b);
                 // fc replaces negative fa/fb function
                 fc = evaluate(exp, c);
-                if (fa < fb)
+
+                /// This is the spot that is giving me trouble.
+                /// I tried swapping c with a/b that had the same sign and that didnt work
+                ///     but neither does swapping it with the opposite sign so im not sure whats
+                ///     going on here ///
+                
+                /// It has to be one or the other from below.... ///
+                
+
+
+                // Swap C with function of same sign
+                if (fc < 0 && fa < 0)
                     a = c;
                 else
                     b = c;
+
+                // Swap C with function of opposite sign
+                //if (fc > 0 && fa < 0)
+                //    a = c;
+                //else
+                //    b = c;
+                        
                 // calc. new c
                 cNew = (a + b) / 2;
 
