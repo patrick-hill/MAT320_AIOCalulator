@@ -1,0 +1,8 @@
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.exe
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.pdb
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NCalc.dll
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.MAT320_AIO_Calulator.resources
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.Properties.Resources.resources
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csproj.GenerateResource.Cache
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.exe
+C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.pdb

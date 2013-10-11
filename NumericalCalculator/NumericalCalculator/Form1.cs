@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace NumericalCalculator
 {
@@ -34,7 +35,8 @@ namespace NumericalCalculator
                     Console.WriteLine("a");
                     break;
                 case "Regula Falsi":
-                    Console.WriteLine("Regula Falsi");
+                    Debug.WriteLine("Regula Falsi");
+                    calc.RegulaFalsi(function, ranges, tolerance);
                     break;
                 case "Newtons Method":
                     Console.WriteLine("Newtons Method");

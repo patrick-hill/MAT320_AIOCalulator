@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NCalc;
 using System.Collections;
+using System.Diagnostics;
 
 namespace NumericalCalculator
 {
@@ -17,6 +18,44 @@ namespace NumericalCalculator
             this.gui = gui;
         }
 
+        public void RegulaFalsi(String function, String range, String _tolerance)
+        {
+            log = "Calculator started." + "\r\n";
+            Debug.WriteLine(_tolerance);
+            Expression exp = new Expression(function);
+            String[] ranges = range.Split(',');
+            float a = float.Parse(ranges[0]);
+            float b = float.Parse(ranges[1]);
+            float tolerance = float.Parse(_tolerance);
+            float current = 0;
+            float previous = a;
+
+            int xNum = 0;
+            while (true)
+            {
+                current = RegulaFalsiEquation(exp, previous, b, xNum ++);
+                if (Math.Max(current,previous)-Math.Min(current,previous) < tolerance)
+                    break;
+                previous = current;
+                Debug.WriteLine("hit");
+            }
+
+            Debug.WriteLine("Answer: " + current);
+            log += "Answer: " + current;
+            setLog(log);
+        }
+
+        public float RegulaFalsiEquation(Expression exp, float a, float b, int xNum)
+        {
+            exp.Parameters["x"] = a;
+            float functionA = float.Parse(exp.Evaluate().ToString());
+            exp.Parameters["x"] = b;
+            float functionB = float.Parse(exp.Evaluate().ToString());
+            float result = ((a * functionB) - (b * functionA)) / (functionB - functionA);
+            log += "x: " + xNum + " = ((" + a + " * " + functionB + ")" + " - (" + b + " * " + functionA + ")) / (" + functionB + " - " + functionA + ") = " + result + "\r\n";
+            return result;
+        }
+
         public void bisect(String function, String range, String _tolerance)
         {
             log += "Calculator Starting..." + "\r\n";
@@ -25,7 +64,7 @@ namespace NumericalCalculator
             // a & b must have opposite signs
             // c = (a+b)/2
             // f(c) replaces negative f(a) or f(b)
-            Expression exp = new Expression(function);            
+            Expression exp = new Expression(function);
 
             String[] ranges = range.Split(',');
             float a = float.Parse(ranges[0]);
@@ -55,7 +94,7 @@ namespace NumericalCalculator
                 else
                     b = newC;
                 // check tolerance
-                if(inTolerance(tolerance, c, newC))
+                if (inTolerance(tolerance, c, newC))
                     break;
                 c = newC;
             }
@@ -72,7 +111,7 @@ namespace NumericalCalculator
             log += exp.ToString() + "\t" + "x=" + var + "\r\n";
             log += "Result: " + result.ToString() + "\r\n";
             setLog(log);
-            
+
             return float.Parse(result.ToString());
         }
 
