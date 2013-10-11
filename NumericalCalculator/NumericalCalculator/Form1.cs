@@ -25,6 +25,7 @@ namespace NumericalCalculator
             // grab method, function, ranges, & tolerance
             String method = methodComboBox.SelectedItem.ToString();
             String function = functionTextBox.Text;
+            String functionDer = functionDerTextBox.Text;
             String ranges = rangesTextBox.Text;
             String tolerance = toleranceComboBox.SelectedItem.ToString();
 
@@ -40,6 +41,7 @@ namespace NumericalCalculator
                     break;
                 case "Newtons Method":
                     Console.WriteLine("Newtons Method");
+                    calc.NeutonsMethod(function, functionDer, ranges, tolerance);
                     break;
             }
             //Bisection

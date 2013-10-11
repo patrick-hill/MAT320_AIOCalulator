@@ -18,6 +18,42 @@ namespace NumericalCalculator
             this.gui = gui;
         }
 
+        public void NeutonsMethod(String function, String derivative, String range, String _tolerance)
+        {
+            log = "Calculator started." + "\r\n";
+            Debug.WriteLine(_tolerance);
+            Expression exp = new Expression(function);
+            Expression derExp = new Expression(derivative);
+            String[] ranges = range.Split(',');
+            double a = double.Parse(ranges[0]);
+            double b = double.Parse(ranges[1]);
+            double tolerance = double.Parse(_tolerance);
+            double current = a;
+            double previous = 0;
+
+            while (true)
+            {
+                current = NeutonsEquation(exp, derExp, current);
+                if (Math.Max(current, previous) - Math.Min(current, previous) < tolerance)
+                    break;
+                previous = current;
+                Debug.WriteLine("hit");
+            }
+
+            setLog(log);
+        }
+
+        public double NeutonsEquation(Expression exp, Expression derExp, double x)
+        {
+            exp.Parameters["x"] = x;
+            double expX = double.Parse(exp.Evaluate().ToString());
+            derExp.Parameters["x"] = x;
+            double derExpX = double.Parse(derExp.Evaluate().ToString());
+            double result = (x - ((expX) / (derExpX)));
+            log += x + " - (" + expX + " / " + derExpX + ")" + " = " + result + "\r\n";
+            return result;
+        }
+
         public void RegulaFalsi(String function, String range, String _tolerance)
         {
             log = "Calculator started." + "\r\n";
@@ -47,8 +83,10 @@ namespace NumericalCalculator
 
         public double RegulaFalsiEquation(Expression exp, double a, double b, int xNum)
         {
+            exp.Parameters["e"] = Math.E;
             exp.Parameters["x"] = a;
             double functionA = double.Parse(exp.Evaluate().ToString());
+            exp.Parameters["e"] = Math.E;
             exp.Parameters["x"] = b;
             double functionB = double.Parse(exp.Evaluate().ToString());
             double result = ((a * functionB) - (b * functionA)) / (functionB - functionA);
