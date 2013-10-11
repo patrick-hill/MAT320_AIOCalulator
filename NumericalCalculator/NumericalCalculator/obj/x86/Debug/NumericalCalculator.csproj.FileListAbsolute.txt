@@ -8,7 +8,6 @@ C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\Numeri
 C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.pdb
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.exe
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.pdb
-D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csprojResolveAssemblyReference.cache
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.MAT320_AIO_Calulator.resources
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.Properties.Resources.resources
 D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csproj.GenerateResource.Cache

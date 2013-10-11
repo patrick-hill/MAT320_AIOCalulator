@@ -88,8 +88,10 @@ namespace NumericalCalculator
                 ///     going on here ///
                 
                 /// It has to be one or the other from below.... ///
-                
 
+                log += "\r\n\r\n";
+                log += "F(a): " + fa.ToString() + "\t" + "F(b): " + fb.ToString() + "\t" + "F(c): " + fc.ToString() + "\r\n";
+                log += "Before Swap:" + "\t" + "A: " + a + "\t" + "B: " + a + "\t" + "C: " + c + "\r\n";
 
                 // Swap C with function of same sign
                 if (fc < 0 && fa < 0)
@@ -97,6 +99,7 @@ namespace NumericalCalculator
                 else
                     b = c;
 
+                log += "After Swap:" + "\t" + "A: " + a + "\t" + "B: " + a + "\t" + "C: " + c + "\r\n";
                 // Swap C with function of opposite sign
                 //if (fc > 0 && fa < 0)
                 //    a = c;
@@ -131,9 +134,11 @@ namespace NumericalCalculator
 
         bool inTolerance(double tolerance, double x, double y)
         {
+            bool inTolerance = (Math.Max(x, y) - Math.Min(x, y)) <= tolerance;
             log += "Checking tolerance: \t" + "Old: " + x + "\t" + "New: " + y + "\r\n";
+            log += "InTolerance? " + inTolerance + "\r\n";
             setLog(log);
-            return x - y < tolerance || y - x < tolerance;
+            return inTolerance;
         }
 
         void setLog(String log)
