@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace NumericalCalculator
 {
-    public partial class Form1 : Form
+    public partial class MAT320_AIO_Calulator : Form
     {
-        public Form1()
+        public MAT320_AIO_Calulator()
         {
             InitializeComponent();
         }
