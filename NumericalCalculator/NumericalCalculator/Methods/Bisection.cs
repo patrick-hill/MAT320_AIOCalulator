@@ -8,7 +8,7 @@ namespace NumericalCalculator.Methods
 {
     class Bisection : BaseMethod
     {
-        // Rules
+        /// Rules
         // a & b must have opposite signs
         // c = (a+b)/2
         // f(c) replaces negative f(a) or f(b)
@@ -23,13 +23,12 @@ namespace NumericalCalculator.Methods
             while (true)
             {
                 iteration++;
-
-
                 // Functions
                 functionA = evaluate(function, a);
                 functionB = evaluate(function, b);
                 functionC = evaluate(function, c);
 
+                // log
                 addToLog(newLine + "Iteration " + iteration);
                 addToLog("a= " + RoundToSignificantDigits(a, 4) + tab
                     + "b= " + RoundToSignificantDigits(b, 4) + tab
@@ -42,16 +41,14 @@ namespace NumericalCalculator.Methods
                 /// Rule ///
                 // c value replaces either a or b depending on same sign of f(a) or f(b)
                 if (functionC < 0 && functionA < 0)
-                //if (functionC < functionB)
                     a = c;
                 else
                     b = c;
+                addToLog("c swaps with " + ((functionC < functionB) ? "a" : "b"));
 
                 // calc. new c
                 cNew = (a + b) / 2;
-
-                addToLog("c swaps with " + ((functionC < functionB) ? "a" : "b"));
-
+                
                 // check tolerance
                 bool withinTolerance = inTolerance(tolerance, c, cNew);
                 if (withinTolerance)
@@ -65,7 +62,6 @@ namespace NumericalCalculator.Methods
                     break;
                 }
             }
-            // if here, we've found our root :)
             addToLog("ROOT FOUND: " + c);
         }
     }

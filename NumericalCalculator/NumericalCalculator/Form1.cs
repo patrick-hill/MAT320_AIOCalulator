@@ -17,8 +17,8 @@ namespace NumericalCalculator
         public MAT320_AIO_Calulator()
         {
             InitializeComponent();
-            methodComboBox.SelectedIndex = 0;
-            toleranceComboBox.SelectedIndex = 1;
+            methodComboBox.SelectedIndex = 2;
+            toleranceComboBox.SelectedIndex = 0;
             calc = new Calculator(this);
         }
 
@@ -31,32 +31,13 @@ namespace NumericalCalculator
             String ranges = rangesTextBox.Text;
             String tolerance = toleranceComboBox.SelectedItem.ToString();
 
-            // Find & run method
-            //switch (method)
-            //{
-            //    case "Bisection":
-            //        calc.bisect(function, ranges, tolerance);
-            //        Console.WriteLine("a");
-            //        break;
-            //    case "Regula functionAlsi":
-            //        Debug.WriteLine("Regula functionAlsi");
-            //        calc.RegulafunctionAlsi(function, ranges, tolerance);
-            //        break;
-            //    case "Newtons Method":
-            //        Console.WriteLine("Newtons Method");
-            //        calc.NeutonsMethod(function, functionDer, ranges, tolerance);
-            //        break;
-            //}
-
             calc.Calculate(method, function, functionDer, ranges, tolerance);
-            //Bisection
-            //Regula functionAlsi
-            //Newtons Method
         }
 
         private void clearLogBtn_Click(object sender, EventArgs e)
         {
-            outputTextBox.Text = "";
+            calc.log = "";
+            outputTextBox.Text = calc.log;
         }
     }
 }

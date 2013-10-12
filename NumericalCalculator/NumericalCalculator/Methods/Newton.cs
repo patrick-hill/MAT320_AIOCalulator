@@ -8,34 +8,38 @@ namespace NumericalCalculator.Methods
 {
     class Newton : BaseMethod
     {
+        int iteration = 0;
+
         public void Evaluate(Expression exp, Expression derExp, double a, double b, double tolerance)
         {
             addToLog("Starting Newton Method");
-
+            double expX, derExpX, result;
             double current = a;
             double previous = 0;
 
             while (true)
             {
-                current = NeutonsEquation(exp, derExp, current);
-                if (Math.Max(current, previous) - Math.Min(current, previous) < tolerance)
-                    break;
+                iteration++;
+                // Functions
+                expX = evaluate(exp, current);
+                derExpX = evaluate(derExp, current);
+                result = current - (expX / derExpX);
+
+                // log
+                addToLog(newLine + "Iteration: " + iteration);
+                addToLog("F(x)= " + RoundToSignificantDigits(expX, 4) + tab
+                    + "F'(x)= " + RoundToSignificantDigits(derExpX, 4) + tab
+                    + "x= " + RoundToSignificantDigits(result, 4));
+
+                // swaps
                 previous = current;
-                //Debug.WriteLine("hit");
+                current = result;
+
+                bool withinTolerance = inTolerance(tolerance, previous, current);
+                if (withinTolerance)
+                    break;
             }
-
-            //setLog(log);
-        }
-
-        public double NeutonsEquation(Expression exp, Expression derExp, double x)
-        {
-            exp.Parameters["x"] = x;
-            double expX = double.Parse(exp.Evaluate().ToString());
-            derExp.Parameters["x"] = x;
-            double derExpX = double.Parse(derExp.Evaluate().ToString());
-            double result = (x - ((expX) / (derExpX)));
-            log += x + " - (" + expX + " / " + derExpX + ")" + " = " + result + "\r\n";
-            return result;
+            addToLog("ROOT FOUND: " + result);
         }
     }
 }

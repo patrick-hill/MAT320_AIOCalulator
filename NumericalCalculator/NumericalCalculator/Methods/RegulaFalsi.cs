@@ -6,42 +6,64 @@ using NCalc;
 
 namespace NumericalCalculator.Methods
 {
-    class RegulafunctionAlsi : BaseMethod
+    class RegulaFalsi : BaseMethod
     {
-        //public void RegulafunctionAlsi(String function, String range, String _tolerance)
+        /// Rules
+        // a < b
+        int iteration = 0;
         public void Evaluate(Expression exp, double a, double b, double tolerance)
         {
             addToLog("Starting Regula Falsi Method");
-            double current = 0;
-            double previous = a;
+            double functionA, functionB, functionX, x, xNew;
 
-            int xNum = 0;
             while (true)
             {
-                current = RegulafunctionAlsiEquation(exp, previous, b, xNum++);
-                if (Math.Max(current, previous) - Math.Min(current, previous) < tolerance)
+                iteration++;
+                // Functions
+                functionA = evaluate(exp, a);
+                functionB = evaluate(exp, b);
+                x = ((a * functionB) - (b * functionA)) / (functionB - functionA);
+                functionX = evaluate(exp, x);
+
+                // log
+                addToLog(newLine + "Iteration: " + iteration);
+                addToLog("a= " + RoundToSignificantDigits(a, 4) + tab
+                    + "b= " + RoundToSignificantDigits(b, 4) + tab
+                    + "x=" + RoundToSignificantDigits(x, 4) + tab
+                    + tab
+                    + "F(a)= " + RoundToSignificantDigits(functionA, 4) + tab
+                    + "F(b): " + RoundToSignificantDigits(functionB, 4) + tab
+                    + "F(x): " + RoundToSignificantDigits(functionX, 4) + tab);
+
+                // swapping: doesnt matter, no rule, try a 50 times, then b 
+                if (iteration > 50)
+                {
+                    b = x;
+                    functionB = functionX;
+                }
+                else
+                {
+                    a = x;
+                    functionA = functionX;
+                }
+                addToLog("x swaps with " + ((iteration > 50) ? "b" : "a"));
+
+                xNew = ((a * functionB) - (b * functionA)) / (functionB - functionA);
+
+                // check tolerance
+                bool withinTolerance = inTolerance(tolerance, x, xNew);
+                if (withinTolerance)
                     break;
-                previous = current;
-                //Debug.WriteLine("hit");
+
+                x = xNew;
+
+                if (iteration >= 350)
+                {
+                    addToLog("Iteration threshold reached, STOPPING!");
+                    break;
+                }
             }
-
-            //Debug.WriteLine("Answer: " + current);
-            addToLog("Answer: " + current);
-            //log += "Answer: " + current;
-            //setLog(log);
-        }
-
-        public double RegulafunctionAlsiEquation(Expression exp, double a, double b, int xNum)
-        {
-            exp.Parameters["e"] = Math.E;
-            exp.Parameters["x"] = a;
-            double functionA = double.Parse(exp.Evaluate().ToString());
-            exp.Parameters["e"] = Math.E;
-            exp.Parameters["x"] = b;
-            double functionB = double.Parse(exp.Evaluate().ToString());
-            double result = ((a * functionB) - (b * functionA)) / (functionB - functionA);
-            log += "x: " + xNum + " = ((" + a + " * " + functionB + ")" + " - (" + b + " * " + functionA + ")) / (" + functionB + " - " + functionA + ") = " + result + "\r\n";
-            return result;
+            addToLog("ROOT FOUND: " + x);
         }
     }
 }

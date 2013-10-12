@@ -42,6 +42,8 @@
             this.functionDerTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.clearLogBtn = new System.Windows.Forms.Button();
+            this.savedEquationscheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // methodComboBox
@@ -52,63 +54,67 @@
             "Bisection",
             "Regula Falsi",
             "Newtons Method"});
-            this.methodComboBox.Location = new System.Drawing.Point(12, 44);
-            this.methodComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.methodComboBox.Location = new System.Drawing.Point(9, 36);
+            this.methodComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.methodComboBox.Name = "methodComboBox";
-            this.methodComboBox.Size = new System.Drawing.Size(175, 24);
+            this.methodComboBox.Size = new System.Drawing.Size(132, 21);
             this.methodComboBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 14);
+            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 17);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Method Selection";
             // 
             // functionTextBox
             // 
-            this.functionTextBox.Location = new System.Drawing.Point(277, 44);
-            this.functionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.functionTextBox.Location = new System.Drawing.Point(208, 36);
+            this.functionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.functionTextBox.Name = "functionTextBox";
-            this.functionTextBox.Size = new System.Drawing.Size(185, 22);
+            this.functionTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionTextBox.TabIndex = 1;
-            this.functionTextBox.Text = "Pow(x,4) - x -10";
+            this.functionTextBox.Text = "3 * x^3 - 9 * x^2 + 8";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(273, 14);
+            this.label2.Location = new System.Drawing.Point(205, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Function";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(540, 14);
+            this.label3.Location = new System.Drawing.Point(405, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 17);
+            this.label3.Size = new System.Drawing.Size(131, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Ranges(Comma Delimited)";
             // 
             // rangesTextBox
             // 
-            this.rangesTextBox.Location = new System.Drawing.Point(543, 46);
-            this.rangesTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rangesTextBox.Location = new System.Drawing.Point(407, 37);
+            this.rangesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.rangesTextBox.Name = "rangesTextBox";
-            this.rangesTextBox.Size = new System.Drawing.Size(185, 22);
+            this.rangesTextBox.Size = new System.Drawing.Size(140, 20);
             this.rangesTextBox.TabIndex = 2;
             this.rangesTextBox.Text = "1,2";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(813, 14);
+            this.label4.Location = new System.Drawing.Point(610, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 17);
+            this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Tolerance Selection";
             // 
@@ -116,46 +122,46 @@
             // 
             this.toleranceComboBox.FormattingEnabled = true;
             this.toleranceComboBox.Items.AddRange(new object[] {
-            ".0005",
             ".005",
             ".001",
             ".01",
             "0"});
-            this.toleranceComboBox.Location = new System.Drawing.Point(816, 46);
-            this.toleranceComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.toleranceComboBox.Location = new System.Drawing.Point(612, 37);
+            this.toleranceComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.toleranceComboBox.Name = "toleranceComboBox";
-            this.toleranceComboBox.Size = new System.Drawing.Size(175, 24);
+            this.toleranceComboBox.Size = new System.Drawing.Size(132, 21);
             this.toleranceComboBox.TabIndex = 3;
             // 
             // outputTextBox
             // 
             this.outputTextBox.AcceptsReturn = true;
             this.outputTextBox.AcceptsTab = true;
-            this.outputTextBox.Location = new System.Drawing.Point(15, 185);
-            this.outputTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.outputTextBox.Location = new System.Drawing.Point(11, 150);
+            this.outputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.outputTextBox.Size = new System.Drawing.Size(775, 515);
+            this.outputTextBox.Size = new System.Drawing.Size(582, 419);
             this.outputTextBox.TabIndex = 8;
             this.outputTextBox.WordWrap = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 153);
+            this.label5.Location = new System.Drawing.Point(11, 125);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Output";
+            this.label5.Text = "Output Display";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(816, 147);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(612, 119);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(66, 19);
             this.button1.TabIndex = 5;
             this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = true;
@@ -163,37 +169,58 @@
             // 
             // functionDerTextBox
             // 
-            this.functionDerTextBox.Location = new System.Drawing.Point(277, 107);
-            this.functionDerTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.functionDerTextBox.Location = new System.Drawing.Point(208, 87);
+            this.functionDerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.functionDerTextBox.Name = "functionDerTextBox";
-            this.functionDerTextBox.Size = new System.Drawing.Size(185, 22);
+            this.functionDerTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionDerTextBox.TabIndex = 4;
-            this.functionDerTextBox.Text = "(9*Pow(x,2))-18*x";
+            this.functionDerTextBox.Text = "9 * x^2 - 18 * x";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(273, 89);
+            this.label6.Location = new System.Drawing.Point(205, 72);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 17);
+            this.label6.Size = new System.Drawing.Size(99, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Function Derivative";
             // 
             // clearLogBtn
             // 
-            this.clearLogBtn.Location = new System.Drawing.Point(816, 659);
+            this.clearLogBtn.Location = new System.Drawing.Point(105, 122);
+            this.clearLogBtn.Margin = new System.Windows.Forms.Padding(2);
             this.clearLogBtn.Name = "clearLogBtn";
-            this.clearLogBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearLogBtn.Size = new System.Drawing.Size(89, 19);
             this.clearLogBtn.TabIndex = 13;
-            this.clearLogBtn.Text = "Clear";
+            this.clearLogBtn.Text = "Clear Output";
             this.clearLogBtn.UseVisualStyleBackColor = true;
             this.clearLogBtn.Click += new System.EventHandler(this.clearLogBtn_Click);
             // 
+            // savedEquationscheckedListBox
+            // 
+            this.savedEquationscheckedListBox.FormattingEnabled = true;
+            this.savedEquationscheckedListBox.Location = new System.Drawing.Point(624, 277);
+            this.savedEquationscheckedListBox.Name = "savedEquationscheckedListBox";
+            this.savedEquationscheckedListBox.Size = new System.Drawing.Size(198, 289);
+            this.savedEquationscheckedListBox.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(643, 251);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Saved Equations";
+            // 
             // MAT320_AIO_Calulator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 711);
+            this.ClientSize = new System.Drawing.Size(834, 578);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.savedEquationscheckedListBox);
             this.Controls.Add(this.clearLogBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.functionDerTextBox);
@@ -208,7 +235,6 @@
             this.Controls.Add(this.functionTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.methodComboBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MAT320_AIO_Calulator";
             this.Text = "MAT320 AIO Calculator";
             this.ResumeLayout(false);
@@ -232,6 +258,8 @@
         private System.Windows.Forms.TextBox functionDerTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button clearLogBtn;
+        private System.Windows.Forms.CheckedListBox savedEquationscheckedListBox;
+        private System.Windows.Forms.Label label7;
 
     }
 }

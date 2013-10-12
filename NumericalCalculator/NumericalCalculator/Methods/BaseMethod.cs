@@ -11,7 +11,6 @@ namespace NumericalCalculator.Methods
         public String log = "";
         public String newLine = "\r\n";
         public String tab = "\t";
-        private MAT320_AIO_Calulator gui;
 
         public void addToLog(String s)
         {
@@ -35,9 +34,10 @@ namespace NumericalCalculator.Methods
             bool inTolerance = (Math.Max(x, y) - Math.Min(x, y)) <= tolerance;
             
             addToLog("Tolerance Check: "
-                + tab + RoundToSignificantDigits(Math.Max(x, y), 6) + " - "
+                + tab + RoundToSignificantDigits(Math.Max(x, y), 6)
+                + " - "
                 + RoundToSignificantDigits(Math.Min(x, y), 6) + " = "
-                + (Math.Max(x, y) - Math.Min(x, y)) + tab
+                + RoundToSignificantDigits((Math.Max(x, y) - Math.Min(x, y)), 4) + tab
                 + "Tolerance Passed? " + inTolerance.ToString().ToUpper());
 
             return inTolerance;
