@@ -113,7 +113,7 @@ namespace NumericalCalculator
             while (startIndex >= 0 && !func[startIndex].Equals(' '))
                 startIndex--;
             startIndex++; // moves from space
-            while (!func[endIndex].Equals(' ') && endIndex <= func.Length)
+            while (endIndex < func.Length && !func[endIndex].Equals(' '))
                 endIndex++;
             endIndex--; // moves from space
             return func.Substring(startIndex, (endIndex - startIndex) + 1);
