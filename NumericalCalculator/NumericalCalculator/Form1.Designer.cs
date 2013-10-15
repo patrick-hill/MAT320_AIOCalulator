@@ -53,7 +53,8 @@
             this.methodComboBox.Items.AddRange(new object[] {
             "Bisection",
             "Regula Falsi",
-            "Newtons Method"});
+            "Newtons Method",
+            "Mullers Method"});
             this.methodComboBox.Location = new System.Drawing.Point(9, 36);
             this.methodComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.methodComboBox.Name = "methodComboBox";

@@ -57,8 +57,12 @@ namespace NumericalCalculator
                     nt.Evaluate(exp, expDer, a, b, tolerance);
                     setLog(nt.log);
                     break;
+                case "Mullers Method":
+                    Mullers m = new Mullers();
+                    m.Evaluate(exp, a, b, tolerance);
+                    setLog(m.log);
+                    break;
             }
-            //setLog(log);
         }
 
         public String parseSpecialCases(String func)
