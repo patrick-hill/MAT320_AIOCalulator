@@ -77,7 +77,7 @@
             this.functionTextBox.Name = "functionTextBox";
             this.functionTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionTextBox.TabIndex = 1;
-            this.functionTextBox.Text = "3 * x^3 - 9 * x^2 + 8";
+            this.functionTextBox.Text = "4 * x^5 - 3 * x^4 - 10* x^3 + 5 * x^2 - 15 * x - 5";
             // 
             // label2
             // 
@@ -106,7 +106,7 @@
             this.rangesTextBox.Name = "rangesTextBox";
             this.rangesTextBox.Size = new System.Drawing.Size(140, 20);
             this.rangesTextBox.TabIndex = 2;
-            this.rangesTextBox.Text = "1,2";
+            this.rangesTextBox.Text = "-1,-2";
             // 
             // label4
             // 
@@ -174,7 +174,7 @@
             this.functionDerTextBox.Name = "functionDerTextBox";
             this.functionDerTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionDerTextBox.TabIndex = 4;
-            this.functionDerTextBox.Text = "9 * x^2 - 18 * x";
+            this.functionDerTextBox.Text = "20 * x^4 - 12 * x^3 - 30 * x^2 + 10* x - 15";
             // 
             // label6
             // 

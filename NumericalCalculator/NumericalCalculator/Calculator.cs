@@ -23,8 +23,7 @@ namespace NumericalCalculator
         {
             /// Parse out e and exponenets for NCalc
             function = parseSpecialCases(function);
-
-            /// Add Power & Exp checks here ///
+            
             Expression exp = new Expression(function);
             Expression expDer = null;
             String[] ranges = range.Split(',');
@@ -41,7 +40,8 @@ namespace NumericalCalculator
                     setLog(bis.log);
                     break;
                 case "Regula Falsi":
-                    RegulaFalsi rf = new RegulaFalsi();
+                    //RegulaFalsi rf = new RegulaFalsi();
+                    RegulafunctionAlsi rf = new RegulafunctionAlsi();
                     rf.Evaluate(exp, a, b, tolerance);
                     setLog(rf.log);
                     break;
