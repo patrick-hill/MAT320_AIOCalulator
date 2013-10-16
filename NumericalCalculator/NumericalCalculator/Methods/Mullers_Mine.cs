@@ -6,7 +6,7 @@ using NCalc;
 
 namespace NumericalCalculator.Methods
 {
-    class Mullers : BaseMethod
+    class Mullers2 : BaseMethod
     {
         const int MAX_ITERATION_SIZE = 210;
         int iteration = 0;
@@ -73,9 +73,21 @@ namespace NumericalCalculator.Methods
                 // Step 8
                 // sign of root is same as sign of c
                 if (c[i] > double.MinValue)
-                    d[i + 2] = (2 * fx[i + 2]) / (c[i] + (Math.Sqrt(Math.Pow(c[i], 2)) - 4 * fx[i + 2] * h[i]));
+                {
+                    //if (i == 2)
+                    //{
+                    //    double one = 2 * fx[i + 2];
+                    //    double two = c[i];
+                    //    double three = Math.Pow(c[i], 2);
+                    //    double four = 4 * fx[i + 2] * h[i];
+                    //    double five = Math.Sqrt(three) - Math.Sqrt(four);
+                    //    double six = one / (two + five);
+                    //    addToLog("1= " + one + "2= " + two + "3= " + three + "4= " + four + "5= " + five + "6= " + six);
+                    //}
+                    d[i + 2] = (2 * fx[i + 2]) / (c[i] + (Math.Sqrt(Math.Pow(c[i], 2)) - Math.Sqrt((4 * fx[i + 2] * h[i]))));
+                }
                 else
-                    d[i + 2] = (2 * fx[i + 2]) / (c[i] - (Math.Sqrt(Math.Pow(c[i], 2)) - 4 * fx[i + 2] * h[i]));
+                    d[i + 2] = (2 * fx[i + 2]) / (c[i] - (Math.Sqrt(Math.Pow(c[i], 2)) - Math.Sqrt((4 * fx[i + 2] * h[i]))));
                 addToLog("d"+(i+2)+"= " + RoundDigit(d[i+2], 4));
 
                 // Step 9
@@ -98,8 +110,9 @@ namespace NumericalCalculator.Methods
                 /// Repeate steps 6 through 10 until tolerance is reached
                 // Step 11
                 i++;
+
+                
             }
-            addToLog("ROOT FOUND: " + x[i+2]);
         }
     }
 

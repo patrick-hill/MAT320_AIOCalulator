@@ -78,7 +78,7 @@
             this.functionTextBox.Name = "functionTextBox";
             this.functionTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionTextBox.TabIndex = 1;
-            this.functionTextBox.Text = "4 * x^5 - 3 * x^4 - 10* x^3 + 5 * x^2 - 15 * x - 5";
+            this.functionTextBox.Text = "4 * x^5 - 3 * x^4 - 10 * x^3 + 5 * x^2 - 15 * x - 5";
             // 
             // label2
             // 

@@ -59,6 +59,7 @@
     <Compile Include="IMethods.cs" />
     <Compile Include="Methods\BaseMethod.cs" />
     <Compile Include="Methods\Bisection.cs" />
+    <Compile Include="Methods\Mullers_Mine.cs" />
     <Compile Include="Methods\Mullers.cs" />
     <Compile Include="Methods\RegulaFalsi.cs" />
     <Compile Include="Methods\Newton.cs" />
