@@ -27,13 +27,13 @@ namespace NumericalCalculator.Methods
 
                 // log
                 addToLog(newLine + "Iteration: " + iteration);
-                addToLog("a= " + RoundToSignificantDigits(a, 4) + tab
-                    + "b= " + RoundToSignificantDigits(b, 4) + tab
-                    + "x=" + RoundToSignificantDigits(x, 4) + tab
+                addToLog("a= " + RoundDigit(a, 4) + tab
+                    + "b= " + RoundDigit(b, 4) + tab
+                    + "x=" + RoundDigit(x, 4) + tab
                     + tab
-                    + "F(a)= " + RoundToSignificantDigits(functionA, 4) + tab
-                    + "F(b): " + RoundToSignificantDigits(functionB, 4) + tab
-                    + "F(x): " + RoundToSignificantDigits(functionX, 4) + tab);
+                    + "F(a)= " + RoundDigit(functionA, 4) + tab
+                    + "F(b): " + RoundDigit(functionB, 4) + tab
+                    + "F(x): " + RoundDigit(functionX, 4) + tab);
 
                 // swapping: doesnt matter, no rule, try a 50 times, then b 
                 if (iteration > 50)

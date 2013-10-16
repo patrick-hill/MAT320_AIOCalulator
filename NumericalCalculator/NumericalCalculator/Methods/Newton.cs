@@ -27,9 +27,9 @@ namespace NumericalCalculator.Methods
 
                 // log
                 addToLog(newLine + "Iteration: " + iteration);
-                addToLog("F(x)= " + RoundToSignificantDigits(expX, 4) + tab
-                    + "F'(x)= " + RoundToSignificantDigits(derExpX, 4) + tab
-                    + "x= " + RoundToSignificantDigits(result, 4));
+                addToLog("F(x)= " + RoundDigit(expX, 4) + tab
+                    + "F'(x)= " + RoundDigit(derExpX, 4) + tab
+                    + "x= " + RoundDigit(result, 4));
 
                 // swaps
                 previous = current;

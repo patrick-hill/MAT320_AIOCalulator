@@ -17,7 +17,7 @@ namespace NumericalCalculator
         public MAT320_AIO_Calulator()
         {
             InitializeComponent();
-            methodComboBox.SelectedIndex = 2;
+            methodComboBox.SelectedIndex = 3;
             toleranceComboBox.SelectedIndex = 0;
             calc = new Calculator(this);
         }

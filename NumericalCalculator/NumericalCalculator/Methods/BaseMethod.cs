@@ -23,8 +23,8 @@ namespace NumericalCalculator.Methods
             Object EvaluatedExpression = exp.Evaluate();
             double result = double.Parse(EvaluatedExpression.ToString());
 
-            addToLog("Evaluating: x=" + RoundToSignificantDigits(value, 4) + tab
-                + "Result: " + RoundToSignificantDigits(result, 4));
+            addToLog("Evaluating: x=" + RoundDigit(value, 4) + tab
+                + "Result: " + RoundDigit(result, 4));
 
             return result;
         }
@@ -34,16 +34,16 @@ namespace NumericalCalculator.Methods
             bool inTolerance = (Math.Max(x, y) - Math.Min(x, y)) <= tolerance;
             
             addToLog("Tolerance Check: "
-                + tab + RoundToSignificantDigits(Math.Max(x, y), 6)
+                + tab + RoundDigit(Math.Max(x, y), 4)
                 + " - "
-                + RoundToSignificantDigits(Math.Min(x, y), 6) + " = "
-                + RoundToSignificantDigits((Math.Max(x, y) - Math.Min(x, y)), 4) + tab
+                + RoundDigit(Math.Min(x, y), 4) + " = "
+                + RoundDigit((Math.Max(x, y) - Math.Min(x, y)), 4) + tab
                 + "Tolerance Passed? " + inTolerance.ToString().ToUpper());
 
             return inTolerance;
         }
 
-        public double RoundToSignificantDigits(double d, int digits)
+        public double RoundDigit(double d, int digits)
         {
             if (d == 0)
                 return 0;
