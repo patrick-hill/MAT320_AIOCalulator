@@ -13,17 +13,35 @@ namespace NumericalCalculator
     {
         public String log = "";
         private MAT320_AIO_Calulator gui;
+        private String[] args;
 
         public Calculator(MAT320_AIO_Calulator gui)
         {
             this.gui = gui;
         }
         
-        public void Calculate(String method, String function, String functionDer, String range, String _tolerance)
+        //public void Calculate(String method, String function, String functionDer, String range, String _tolerance)
+        public void Calculate(int tab, String[] args)
         {
+            this.args = args;
+
+            if (tab == 0)
+                doMethods();
+            else if(tab ==1)
+                doMatrix();
+        }
+        
+        public void doMethods()
+        {
+            String method = args[0];
+            String function = args[1];
+            String functionDer = args[2];
+            String range = args[3];
+            String _tolerance = args[4];
+
             /// Parse out e and exponenets for NCalc
             function = parseSpecialCases(function);
-            
+
             Expression exp = new Expression(function);
             Expression expDer = null;
             String[] ranges = range.Split(',');
@@ -61,6 +79,22 @@ namespace NumericalCalculator
                     Mullers m = new Mullers();
                     m.Evaluate(exp, a, b, tolerance);
                     setLog(m.log);
+                    break;
+            }
+        }
+
+        public void doMatrix()
+        {
+            String method = args[0];
+            String maxtrixStr = args[1];
+
+            switch (method)
+            {
+                case "Gauss Elimination (Back Substitution)":
+
+                    break;
+                case "Gauss-Jordan Elimination":
+
                     break;
             }
         }

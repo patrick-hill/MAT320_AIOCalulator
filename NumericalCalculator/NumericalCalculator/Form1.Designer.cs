@@ -42,8 +42,16 @@
             this.functionDerTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.clearLogBtn = new System.Windows.Forms.Button();
-            this.savedEquationscheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Methods = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.t2comboBoxMethod = new System.Windows.Forms.ComboBox();
+            this.t2MatrixInpu = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tabControl1.SuspendLayout();
+            this.Methods.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // methodComboBox
@@ -55,16 +63,16 @@
             "Regula Falsi",
             "Newtons Method",
             "Mullers Method"});
-            this.methodComboBox.Location = new System.Drawing.Point(9, 36);
+            this.methodComboBox.Location = new System.Drawing.Point(17, 25);
             this.methodComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.methodComboBox.Name = "methodComboBox";
-            this.methodComboBox.Size = new System.Drawing.Size(132, 21);
+            this.methodComboBox.Size = new System.Drawing.Size(88, 21);
             this.methodComboBox.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Location = new System.Drawing.Point(15, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
@@ -73,7 +81,7 @@
             // 
             // functionTextBox
             // 
-            this.functionTextBox.Location = new System.Drawing.Point(208, 36);
+            this.functionTextBox.Location = new System.Drawing.Point(18, 73);
             this.functionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.functionTextBox.Name = "functionTextBox";
             this.functionTextBox.Size = new System.Drawing.Size(140, 20);
@@ -83,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(205, 11);
+            this.label2.Location = new System.Drawing.Point(15, 57);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
@@ -93,7 +101,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(405, 11);
+            this.label3.Location = new System.Drawing.Point(15, 153);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 13);
@@ -102,17 +110,17 @@
             // 
             // rangesTextBox
             // 
-            this.rangesTextBox.Location = new System.Drawing.Point(407, 37);
+            this.rangesTextBox.Location = new System.Drawing.Point(18, 169);
             this.rangesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.rangesTextBox.Name = "rangesTextBox";
-            this.rangesTextBox.Size = new System.Drawing.Size(140, 20);
+            this.rangesTextBox.Size = new System.Drawing.Size(42, 20);
             this.rangesTextBox.TabIndex = 2;
             this.rangesTextBox.Text = "-1,-2";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(610, 11);
+            this.label4.Location = new System.Drawing.Point(15, 195);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
@@ -127,7 +135,7 @@
             ".001",
             ".01",
             "0"});
-            this.toleranceComboBox.Location = new System.Drawing.Point(612, 37);
+            this.toleranceComboBox.Location = new System.Drawing.Point(18, 210);
             this.toleranceComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.toleranceComboBox.Name = "toleranceComboBox";
             this.toleranceComboBox.Size = new System.Drawing.Size(132, 21);
@@ -137,20 +145,21 @@
             // 
             this.outputTextBox.AcceptsReturn = true;
             this.outputTextBox.AcceptsTab = true;
-            this.outputTextBox.Location = new System.Drawing.Point(11, 150);
+            this.outputTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.outputTextBox.Location = new System.Drawing.Point(11, 316);
             this.outputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.outputTextBox.Size = new System.Drawing.Size(582, 419);
+            this.outputTextBox.Size = new System.Drawing.Size(403, 393);
             this.outputTextBox.TabIndex = 8;
             this.outputTextBox.WordWrap = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 125);
+            this.label5.Location = new System.Drawing.Point(177, 290);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
@@ -159,7 +168,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(612, 119);
+            this.button1.Location = new System.Drawing.Point(348, 287);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(66, 19);
@@ -170,7 +179,7 @@
             // 
             // functionDerTextBox
             // 
-            this.functionDerTextBox.Location = new System.Drawing.Point(208, 87);
+            this.functionDerTextBox.Location = new System.Drawing.Point(18, 114);
             this.functionDerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.functionDerTextBox.Name = "functionDerTextBox";
             this.functionDerTextBox.Size = new System.Drawing.Size(140, 20);
@@ -180,7 +189,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(205, 72);
+            this.label6.Location = new System.Drawing.Point(15, 99);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 13);
@@ -189,7 +198,7 @@
             // 
             // clearLogBtn
             // 
-            this.clearLogBtn.Location = new System.Drawing.Point(105, 122);
+            this.clearLogBtn.Location = new System.Drawing.Point(12, 287);
             this.clearLogBtn.Margin = new System.Windows.Forms.Padding(2);
             this.clearLogBtn.Name = "clearLogBtn";
             this.clearLogBtn.Size = new System.Drawing.Size(89, 19);
@@ -198,46 +207,106 @@
             this.clearLogBtn.UseVisualStyleBackColor = true;
             this.clearLogBtn.Click += new System.EventHandler(this.clearLogBtn_Click);
             // 
-            // savedEquationscheckedListBox
+            // tabControl1
             // 
-            this.savedEquationscheckedListBox.FormattingEnabled = true;
-            this.savedEquationscheckedListBox.Location = new System.Drawing.Point(624, 277);
-            this.savedEquationscheckedListBox.Name = "savedEquationscheckedListBox";
-            this.savedEquationscheckedListBox.Size = new System.Drawing.Size(198, 289);
-            this.savedEquationscheckedListBox.TabIndex = 14;
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControl1.Controls.Add(this.Methods);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(402, 270);
+            this.tabControl1.TabIndex = 16;
             // 
-            // label7
+            // Methods
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(643, 251);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Saved Equations";
+            this.Methods.BackColor = System.Drawing.Color.LightGray;
+            this.Methods.Controls.Add(this.methodComboBox);
+            this.Methods.Controls.Add(this.label1);
+            this.Methods.Controls.Add(this.functionTextBox);
+            this.Methods.Controls.Add(this.label6);
+            this.Methods.Controls.Add(this.label2);
+            this.Methods.Controls.Add(this.functionDerTextBox);
+            this.Methods.Controls.Add(this.label3);
+            this.Methods.Controls.Add(this.rangesTextBox);
+            this.Methods.Controls.Add(this.label4);
+            this.Methods.Controls.Add(this.toleranceComboBox);
+            this.Methods.Location = new System.Drawing.Point(23, 4);
+            this.Methods.Name = "Methods";
+            this.Methods.Padding = new System.Windows.Forms.Padding(3);
+            this.Methods.Size = new System.Drawing.Size(375, 262);
+            this.Methods.TabIndex = 0;
+            this.Methods.Text = "Methods";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.t2MatrixInpu);
+            this.tabPage2.Controls.Add(this.t2comboBoxMethod);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Location = new System.Drawing.Point(23, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(375, 262);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Matrix";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Method";
+            // 
+            // t2comboBoxMethod
+            // 
+            this.t2comboBoxMethod.FormattingEnabled = true;
+            this.t2comboBoxMethod.Items.AddRange(new object[] {
+            "Gauss Elimination (Back Substitution)",
+            "Gauss-Jordan Elimination"});
+            this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 29);
+            this.t2comboBoxMethod.Name = "t2comboBoxMethod";
+            this.t2comboBoxMethod.Size = new System.Drawing.Size(95, 21);
+            this.t2comboBoxMethod.TabIndex = 1;
+            // 
+            // t2MatrixInpu
+            // 
+            this.t2MatrixInpu.Location = new System.Drawing.Point(119, 29);
+            this.t2MatrixInpu.Multiline = true;
+            this.t2MatrixInpu.Name = "t2MatrixInpu";
+            this.t2MatrixInpu.Size = new System.Drawing.Size(250, 227);
+            this.t2MatrixInpu.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(168, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(148, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Matrix Input (Space Delimited)";
             // 
             // MAT320_AIO_Calulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 578);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.savedEquationscheckedListBox);
-            this.Controls.Add(this.clearLogBtn);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.functionDerTextBox);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(423, 722);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.outputTextBox);
-            this.Controls.Add(this.toleranceComboBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.rangesTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.functionTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.methodComboBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.clearLogBtn);
+            this.Controls.Add(this.button1);
             this.Name = "MAT320_AIO_Calulator";
             this.Text = "MAT320 AIO Calculator";
+            this.tabControl1.ResumeLayout(false);
+            this.Methods.ResumeLayout(false);
+            this.Methods.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,8 +328,13 @@
         private System.Windows.Forms.TextBox functionDerTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button clearLogBtn;
-        private System.Windows.Forms.CheckedListBox savedEquationscheckedListBox;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Methods;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox t2MatrixInpu;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox t2comboBoxMethod;
 
     }
 }

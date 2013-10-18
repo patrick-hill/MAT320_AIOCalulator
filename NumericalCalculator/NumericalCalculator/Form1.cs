@@ -24,14 +24,29 @@ namespace NumericalCalculator
 
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
-            // grab method, function, ranges, & tolerance
-            String method = methodComboBox.SelectedItem.ToString();
-            String function = functionTextBox.Text;
-            String functionDer = functionDerTextBox.Text;
-            String ranges = rangesTextBox.Text;
-            String tolerance = toleranceComboBox.SelectedItem.ToString();
+            int tab = tabControl1.SelectedIndex;
+            String[] args = null;
 
-            calc.Calculate(method, function, functionDer, ranges, tolerance);
+            if (tab == 0)
+            {
+                // grab method, function, ranges, & tolerance
+                String method = methodComboBox.SelectedItem.ToString();
+                String function = functionTextBox.Text;
+                String functionDer = functionDerTextBox.Text;
+                String ranges = rangesTextBox.Text;
+                String tolerance = toleranceComboBox.SelectedItem.ToString();
+
+                args = new String[] { method, function, functionDer, ranges, tolerance };
+            }
+            else if (tab == 1)
+            {
+                String method = t2comboBoxMethod.SelectedItem.ToString();
+                String maxtrixStr = t2MatrixInpu.Text;
+
+                args = new String[] { method, maxtrixStr };
+            }
+            
+            calc.Calculate(tab, args);
         }
 
         private void clearLogBtn_Click(object sender, EventArgs e)

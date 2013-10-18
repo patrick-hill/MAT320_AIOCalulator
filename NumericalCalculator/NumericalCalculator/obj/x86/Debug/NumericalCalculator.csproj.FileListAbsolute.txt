@@ -18,3 +18,12 @@ D:\Software Development\GitHub\MAT320_AIOCalulator\NumericalCalculator\Numerical
 C:\Users\awernli\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csprojResolveAssemblyReference.cache
 C:\Users\awernli\Documents\Ninth Quarter\c++\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.exe
 C:\Users\awernli\Documents\Ninth Quarter\c++\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.pdb
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.exe
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.pdb
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.exe
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NumericalCalculator.pdb
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\bin\Debug\NCalc.dll
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csprojResolveAssemblyReference.cache
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.MAT320_AIO_Calulator.resources
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.Properties.Resources.resources
+C:\Users\Event\Documents\GitHub\MAT320_AIOCalulator\NumericalCalculator\NumericalCalculator\obj\x86\Debug\NumericalCalculator.csproj.GenerateResource.Cache
