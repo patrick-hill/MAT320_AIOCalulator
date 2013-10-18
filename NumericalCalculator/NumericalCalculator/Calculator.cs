@@ -91,7 +91,8 @@ namespace NumericalCalculator
             switch (method)
             {
                 case "Gauss Elimination (Back Substitution)":
-
+                    GaussElimination g = new GaussElimination();
+                    g.Evaluate(args[1]);
                     break;
                 case "Gauss-Jordan Elimination":
 

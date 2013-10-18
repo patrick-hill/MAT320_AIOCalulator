@@ -12,11 +12,60 @@ namespace NumericalCalculator.Methods
         double[,] identityMatrix;
         string steps;
 
-        public void Evaluate(Matrix matrix)
+        //public void Evaluate(Matrix matrix)
+        //{
+        //    double[,] result = HardCalculation(matrix.getMatrix(), matrix.GetRows(), matrix.GetColumns());
+
+
+        //}
+
+        public void Evaluate(String args)
         {
-            double[,] result = HardCalculation(matrix.getMatrix(), matrix.GetRows(), matrix.GetColumns());
+            Matrix matrix = createMatrix(args);
+            double[,] matrixArray = HardCalculation(matrix.getMatrix(), matrix.GetRows(), matrix.GetColumns());
 
+            double[] results = new double[matrix.GetColumns() - 1];
+        }
 
+        public double[] EvaluateVariables(double[,] matrixArray)
+        {
+            int count = 1;
+            int row = matrixArray.GetLength(0) - 1;
+            int column = matrixArray.Length - 2;
+            double[] variables = new double[column];
+
+            for (int i = row; i >= 0; i--)
+            {
+
+            }
+
+            return variables;
+        }
+
+        public Matrix createMatrix(String arg)
+        {
+            string[] argArray = arg.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            Matrix matrix = new Matrix(argArray.Length, argArray[0].Split(',').Length);
+            int row = 0;
+            int column = 0;
+            foreach (string rowString in argArray)
+            {
+                string[] rowArray = rowString.Split(',');
+                for (int i = 0; i < rowArray.Length; i++)
+                {
+                    if (column >= matrix.GetColumns())
+                        break;
+                    matrix.AddCell(row, column, double.Parse(rowArray[column]));
+                    column++;
+                }
+
+                row++;
+                column = 0;
+
+                if (row >= matrix.GetRows())
+                    break;
+            }
+            return matrix;
         }
 
         public double[,] HardCalculation(double[,] matrix, int rows, int columns)
@@ -35,7 +84,7 @@ namespace NumericalCalculator.Methods
                 column++;
             }
 
-            return identityMatrix;
+            return originalMatrix;
         }
 
         public double[,] setupIdentity(int rows, int columns)
@@ -107,7 +156,7 @@ namespace NumericalCalculator.Methods
                 }
 
                 //loops through to print steps
-                for (int i = 0; i < columns; i++)
+                for (int i = 0; i < rows; i++)
                 {
                     for (int a = 0; a < columns; a++)
                     {
