@@ -10,29 +10,27 @@ namespace NumericalCalculator.Methods
     {
         double[,] originalMatrix;
         double[,] identityMatrix;
-        string steps;
+        String steps;
 
         public void Evaluate(Matrix matrix)
         {
             double[,] result = HardCalculation(matrix.getMatrix(), matrix.GetRows(), matrix.GetColumns());
-
-
         }
 
-        public double[,] HardCalculation(double[,] matrix, int rows, int columns)
+        public double[,] HardCalculation(double[,] matrix, int rowSize, int columnSize)
         {
             originalMatrix = matrix;
-            identityMatrix = setupIdentity(rows, columns);
+            identityMatrix = setupIdentity(rowSize, columnSize);
 
-            int row = 0;
-            int column = 0;
+            int curRow = 0;
+            int curColumn = 0;
 
             //calls changeBottomZeros to reduce the array into row echelon form
-            while (row < rows - 1)
+            while (curRow < rowSize - 1)
             {
-                changeBottomZeros(rows, columns, row, column);
-                row++;
-                column++;
+                changeBottomZeros(rowSize, columnSize, curRow, curColumn);
+                curRow++;
+                curColumn++;
             }
 
             return identityMatrix;
@@ -67,7 +65,7 @@ namespace NumericalCalculator.Methods
             return identityMatrix;
         }
 
-        public void changeBottomZeros(int rows, int columns, int startRow, int startColumn)
+        public void changeBottomZeros(int rowSize, int columnSize, int startRow, int startColumn)
         {
             double multiplier;
 
@@ -82,7 +80,7 @@ namespace NumericalCalculator.Methods
                 {
                     multiplier = 1 / originalMatrix[startRow, startColumn];
 
-                    for (int i = startColumn; i < columns; i++)
+                    for (int i = startColumn; i < columnSize; i++)
                     {
                         originalMatrix[startRow, i] = originalMatrix[startRow, i] * multiplier;
                         identityMatrix[startRow, i] = identityMatrix[startRow, i] * multiplier;
@@ -99,7 +97,7 @@ namespace NumericalCalculator.Methods
                 if (originalMatrix[row, column] != 0)
                 {
                     multiplier = originalMatrix[row, column];
-                    for (int i = startColumn; i < columns; i++)
+                    for (int i = startColumn; i < columnSize; i++)
                     {
                         originalMatrix[row, i] = originalMatrix[row, i] - (multiplier * originalMatrix[startRow, i]);
                         identityMatrix[row, i] = identityMatrix[row, i] - (multiplier * identityMatrix[startRow, i]);
@@ -107,13 +105,13 @@ namespace NumericalCalculator.Methods
                 }
 
                 //loops through to print steps
-                for (int i = 0; i < columns; i++)
+                for (int i = 0; i < columnSize; i++)
                 {
-                    for (int a = 0; a < columns; a++)
+                    for (int a = 0; a < columnSize; a++)
                     {
                         steps += originalMatrix[i, a] + " ";
                     }
-                    for (int a = 0; a < columns; a++)
+                    for (int a = 0; a < columnSize; a++)
                     {
                         steps += identityMatrix[i, a] + " ";
                     }
@@ -123,7 +121,7 @@ namespace NumericalCalculator.Methods
                 steps += "-----------------\n";
                 row++;
 
-                if (row == rows)
+                if (row == rowSize)
                 {
                     bottomZeros = true;
                 }

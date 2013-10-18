@@ -6,6 +6,7 @@ using NCalc;
 using System.Collections;
 using System.Diagnostics;
 using NumericalCalculator.Methods;
+using NumericalCalculator.CalcObjects;
 
 namespace NumericalCalculator
 {
@@ -41,6 +42,7 @@ namespace NumericalCalculator
 
             /// Parse out e and exponenets for NCalc
             function = parseSpecialCases(function);
+            functionDer = parseSpecialCases(functionDer);
 
             Expression exp = new Expression(function);
             Expression expDer = null;
@@ -48,6 +50,8 @@ namespace NumericalCalculator
             double a = double.Parse(ranges[0]);
             double b = double.Parse(ranges[1]);
             double tolerance = double.Parse(_tolerance);
+
+
 
             // Find & run method
             switch (method)
@@ -58,7 +62,6 @@ namespace NumericalCalculator
                     setLog(bis.log);
                     break;
                 case "Regula Falsi":
-                    //RegulaFalsi rf = new RegulaFalsi();
                     RegulafunctionAlsi rf = new RegulafunctionAlsi();
                     rf.Evaluate(exp, a, b, tolerance);
                     setLog(rf.log);
@@ -70,7 +73,6 @@ namespace NumericalCalculator
                         setLog(log);
                         break;
                     }
-                    expDer = new Expression(parseSpecialCases(functionDer));
                     Newton nt = new Newton();
                     nt.Evaluate(exp, expDer, a, b, tolerance);
                     setLog(nt.log);
@@ -85,22 +87,56 @@ namespace NumericalCalculator
 
         public void doMatrix()
         {
-            String method = args[0];
-            String maxtrixStr = args[1];
+            Matrix matrix = processMatrix(args[1]);
 
-            switch (method)
+            switch (args[0])
             {
                 case "Gauss Elimination (Back Substitution)":
-
+                    GaussElimination ge = new GaussElimination();
+                    ge.Evaluate(matrix);
+                    setLog(ge.log);
                     break;
                 case "Gauss-Jordan Elimination":
-
+                    GuassJordanElimination gje = new GuassJordanElimination();
+                    gje.Evaluate(matrix);
+                    setLog(gje.log);
                     break;
             }
+
+            log += "Matrix Printout" + "\r\n";
+            log += matrix.Print();
+            setLog(log);
+        }
+
+        public Matrix processMatrix(String s)
+        {
+            String[] rows = s.Split('\n');
+            String[] column = rows[0].Split(' ');
+
+            double[,] mstr = new double[rows.Length, column.Length];
+            Matrix m = new Matrix(rows.Length, column.Length);
+
+            for (int i = 0; i < rows.Length; i++)
+            {
+                column = rows[i].Split(' ');
+
+                for (int j = 0; j < column.Length; j++)
+                {
+                    if (!column.Equals("") || !column.Equals("\n") || !column.Equals(null))
+                    {
+                        m.AddCell(i, j, double.Parse(column[j]));
+                        mstr[i, j] = double.Parse(column[j]);
+                    }
+                }
+            }
+
+            return m;
         }
 
         public String parseSpecialCases(String func)
         {
+            if (func == null) return null;
+
             char[] types = new char[2] { 'e', '^' };
 
             for (int i = 0; i < types.Length; i++)

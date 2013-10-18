@@ -8,7 +8,7 @@ namespace NumericalCalculator.CalcObjects
     public class Matrix
     {
         private string name = null;
-        private double[,] matrix;
+        public double[,] matrix;
         private int matrixRow, matrixColumn;
 
         public Matrix(int row, int column)
@@ -58,6 +58,22 @@ namespace NumericalCalculator.CalcObjects
             if (name.Equals(null))
                 name = "none";
             return name;
+        }
+
+        public String Print()
+        {
+            String s = null;
+            for (int i = 0; i < matrixRow; i++)
+            {
+                for (int j = 0; j < matrixColumn; j++)
+                {
+                    s += matrix[i, j];
+                    s += " ";
+                }
+                s += "\r\n";
+            }
+            
+            return s;
         }
     }
 }

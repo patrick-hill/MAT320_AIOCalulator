@@ -45,10 +45,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Methods = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.t2comboBoxMethod = new System.Windows.Forms.ComboBox();
-            this.t2MatrixInpu = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.t2MatrixInpu = new System.Windows.Forms.TextBox();
+            this.t2comboBoxMethod = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.Methods.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.methodComboBox.Location = new System.Drawing.Point(17, 25);
             this.methodComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.methodComboBox.Name = "methodComboBox";
-            this.methodComboBox.Size = new System.Drawing.Size(88, 21);
+            this.methodComboBox.Size = new System.Drawing.Size(141, 21);
             this.methodComboBox.TabIndex = 0;
             // 
             // label1
@@ -86,7 +86,7 @@
             this.functionTextBox.Name = "functionTextBox";
             this.functionTextBox.Size = new System.Drawing.Size(140, 20);
             this.functionTextBox.TabIndex = 1;
-            this.functionTextBox.Text = "4 * x^5 - 3 * x^4 - 10 * x^3 + 5 * x^2 - 15 * x - 5";
+            this.functionTextBox.Text = "x^3 - 2*x-5";
             // 
             // label2
             // 
@@ -113,8 +113,8 @@
             this.rangesTextBox.Location = new System.Drawing.Point(18, 169);
             this.rangesTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.rangesTextBox.Name = "rangesTextBox";
-            this.rangesTextBox.Size = new System.Drawing.Size(42, 20);
-            this.rangesTextBox.TabIndex = 2;
+            this.rangesTextBox.Size = new System.Drawing.Size(140, 20);
+            this.rangesTextBox.TabIndex = 3;
             this.rangesTextBox.Text = "-1,-2";
             // 
             // label4
@@ -138,21 +138,21 @@
             this.toleranceComboBox.Location = new System.Drawing.Point(18, 210);
             this.toleranceComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.toleranceComboBox.Name = "toleranceComboBox";
-            this.toleranceComboBox.Size = new System.Drawing.Size(132, 21);
-            this.toleranceComboBox.TabIndex = 3;
+            this.toleranceComboBox.Size = new System.Drawing.Size(140, 21);
+            this.toleranceComboBox.TabIndex = 4;
             // 
             // outputTextBox
             // 
             this.outputTextBox.AcceptsReturn = true;
             this.outputTextBox.AcceptsTab = true;
             this.outputTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.outputTextBox.Location = new System.Drawing.Point(11, 316);
+            this.outputTextBox.Location = new System.Drawing.Point(2, 310);
             this.outputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.outputTextBox.Multiline = true;
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
             this.outputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.outputTextBox.Size = new System.Drawing.Size(403, 393);
+            this.outputTextBox.Size = new System.Drawing.Size(417, 409);
             this.outputTextBox.TabIndex = 8;
             this.outputTextBox.WordWrap = false;
             // 
@@ -183,7 +183,7 @@
             this.functionDerTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.functionDerTextBox.Name = "functionDerTextBox";
             this.functionDerTextBox.Size = new System.Drawing.Size(140, 20);
-            this.functionDerTextBox.TabIndex = 4;
+            this.functionDerTextBox.TabIndex = 2;
             this.functionDerTextBox.Text = "20 * x^4 - 12 * x^3 - 30 * x^2 + 10* x - 15";
             // 
             // label6
@@ -212,11 +212,11 @@
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl1.Controls.Add(this.Methods);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(2, 7);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(402, 270);
+            this.tabControl1.Size = new System.Drawing.Size(417, 275);
             this.tabControl1.TabIndex = 16;
             // 
             // Methods
@@ -235,7 +235,7 @@
             this.Methods.Location = new System.Drawing.Point(23, 4);
             this.Methods.Name = "Methods";
             this.Methods.Padding = new System.Windows.Forms.Padding(3);
-            this.Methods.Size = new System.Drawing.Size(375, 262);
+            this.Methods.Size = new System.Drawing.Size(390, 267);
             this.Methods.TabIndex = 0;
             this.Methods.Text = "Methods";
             // 
@@ -249,9 +249,37 @@
             this.tabPage2.Location = new System.Drawing.Point(23, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(375, 262);
+            this.tabPage2.Size = new System.Drawing.Size(396, 267);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Matrix";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(115, 55);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(148, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Matrix Input (Space Delimited)";
+            // 
+            // t2MatrixInpu
+            // 
+            this.t2MatrixInpu.Location = new System.Drawing.Point(6, 71);
+            this.t2MatrixInpu.Multiline = true;
+            this.t2MatrixInpu.Name = "t2MatrixInpu";
+            this.t2MatrixInpu.Size = new System.Drawing.Size(363, 185);
+            this.t2MatrixInpu.TabIndex = 2;
+            // 
+            // t2comboBoxMethod
+            // 
+            this.t2comboBoxMethod.FormattingEnabled = true;
+            this.t2comboBoxMethod.Items.AddRange(new object[] {
+            "Gauss Elimination (Back Substitution)",
+            "Gauss-Jordan Elimination"});
+            this.t2comboBoxMethod.Location = new System.Drawing.Point(52, 10);
+            this.t2comboBoxMethod.Name = "t2comboBoxMethod";
+            this.t2comboBoxMethod.Size = new System.Drawing.Size(107, 21);
+            this.t2comboBoxMethod.TabIndex = 0;
             // 
             // label8
             // 
@@ -261,34 +289,6 @@
             this.label8.Size = new System.Drawing.Size(43, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Method";
-            // 
-            // t2comboBoxMethod
-            // 
-            this.t2comboBoxMethod.FormattingEnabled = true;
-            this.t2comboBoxMethod.Items.AddRange(new object[] {
-            "Gauss Elimination (Back Substitution)",
-            "Gauss-Jordan Elimination"});
-            this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 29);
-            this.t2comboBoxMethod.Name = "t2comboBoxMethod";
-            this.t2comboBoxMethod.Size = new System.Drawing.Size(95, 21);
-            this.t2comboBoxMethod.TabIndex = 1;
-            // 
-            // t2MatrixInpu
-            // 
-            this.t2MatrixInpu.Location = new System.Drawing.Point(119, 29);
-            this.t2MatrixInpu.Multiline = true;
-            this.t2MatrixInpu.Name = "t2MatrixInpu";
-            this.t2MatrixInpu.Size = new System.Drawing.Size(250, 227);
-            this.t2MatrixInpu.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(168, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 13);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Matrix Input (Space Delimited)";
             // 
             // MAT320_AIO_Calulator
             // 
