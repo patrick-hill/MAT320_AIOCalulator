@@ -59,5 +59,21 @@ namespace NumericalCalculator.CalcObjects
                 name = "none";
             return name;
         }
+
+        public String Print()
+        {
+            String s = null;
+            for (int i = 0; i < matrixRow; i++)
+            {
+                for (int j = 0; j < matrixColumn; j++)
+                {
+                    s += matrix[i, j];
+                    s += " ";
+                }
+                s += "\r\n";
+            }
+
+            return s;
+        }
     }
 }
