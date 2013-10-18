@@ -6,7 +6,7 @@ using NCalc;
 
 namespace NumericalCalculator.Methods
 {
-    class RegulafunctionAlsi : BaseMethod
+    class RegulaFalsiOLD : BaseMethod
     {
         //public void RegulafunctionAlsi(String function, String range, String _tolerance)
         public void Evaluate(Expression exp, double a, double b, double tolerance)

@@ -59,7 +59,7 @@ namespace NumericalCalculator
                     break;
                 case "Regula Falsi":
                     //RegulaFalsi rf = new RegulaFalsi();
-                    RegulafunctionAlsi rf = new RegulafunctionAlsi();
+                    RegulaFalsiOLD rf = new RegulaFalsiOLD();
                     rf.Evaluate(exp, a, b, tolerance);
                     setLog(rf.log);
                     break;
