@@ -27,6 +27,38 @@ namespace NumericalCalculator.Methods
             double[] results = new double[matrix.GetColumns() - 1];
         }
 
+        public void Evaluate2(String args)
+        {
+            Matrix matrix = createMatrix(args);
+            int i, j, k, n;
+            double[,] a = new double[10, 10];
+            double[] c = new double[10];
+            double[] x = new double[10];
+            printf("\nenter the number of elements: ");
+            a = matrix.getMatrix();
+            for (k = 0; k < n - 1; i++)
+            {
+                for (i = k + 1; i < n; i++)
+                {
+                    for (j = k + 1; j < n; j++)
+                    {
+                        a[i,j] = a[i,j] - (a[i,k] / a[k,k]) * a[k,j];
+                        c[i] = c[i] - (a[i,k] / a[k,k]) * c[k];
+                    }
+                }
+                x[n - 1] = c[n - 1] / a[n - 1,n - 1];
+                printf("x[%d]=%f\n", n - 1, x[n - 1]);
+                for (k = 0; k < n - 1; k++)
+                {
+                    i = n - k - 2;
+                    for (j = i + 1; j < n; j++)
+                        c[i] = c[i] - (a[i][j] * x[j]);
+                    x[i] = c[i] / a[i][i];
+                    printf("x[%d]=%f\n", i, x[i]);
+                }
+            }
+        }
+
         public double[] EvaluateVariables(double[,] matrixArray)
         {
             int count = 1;

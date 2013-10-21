@@ -62,7 +62,7 @@ namespace NumericalCalculator
                     setLog(bis.log);
                     break;
                 case "Regula Falsi":
-                    RegulafunctionAlsi rf = new RegulafunctionAlsi();
+                    RegulaFalsi rf = new RegulaFalsi();
                     rf.Evaluate(exp, a, b, tolerance);
                     setLog(rf.log);
                     break;
@@ -79,7 +79,7 @@ namespace NumericalCalculator
                     break;
                 case "Mullers Method":
                     Mullers m = new Mullers();
-                    m.Evaluate(exp, a, b, tolerance);
+                    m.Evaluate2(exp, a, b, tolerance);
                     setLog(m.log);
                     break;
             }
@@ -88,13 +88,13 @@ namespace NumericalCalculator
         public void doMatrix()
         {
             // Create Augmented Matrix
-            //Matrix matrix = processMatrix(args[1]);
+            Matrix matrix = processMatrix(args[1]);
 
             switch (args[0])
             {
                 case "Gauss Elimination (Back Substitution)":
                     GaussElimination ge = new GaussElimination();
-                    ge.Evaluate(matrix);
+                    ge.Evaluate(matrix.Print());
                     setLog(ge.log);
                     break;
                 case "Gauss-Jordan Elimination":
