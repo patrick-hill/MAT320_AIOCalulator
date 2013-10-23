@@ -92,12 +92,12 @@ namespace NumericalCalculator
 
             switch (args[0])
             {
-                case "Gauss Elimination (Back Substitution)":
-                    GaussElimination ge = new GaussElimination();
-                    ge.Evaluate(matrix.Print());
-                    setLog(ge.log);
-                    break;
                 case "Gauss-Jordan Inverting":
+                    //GaussElimination ge = new GaussElimination();
+                    //ge.Evaluate(matrix.Print());
+                    //setLog(ge.log);
+                    break;
+                case "Gauss Elimination (Back Substitution)":
                     if (GuassElimintationLinearEquationSolver.Solve(matrix.getMatrix()))
                         setLog("yeah shit works");
                     //gje.Evaluate(matrix);
