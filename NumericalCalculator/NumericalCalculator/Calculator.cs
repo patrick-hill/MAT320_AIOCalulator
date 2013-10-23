@@ -52,7 +52,6 @@ namespace NumericalCalculator
             double tolerance = double.Parse(_tolerance);
 
 
-
             // Find & run method
             switch (method)
             {
@@ -87,7 +86,6 @@ namespace NumericalCalculator
 
         public void doMatrix()
         {
-            // Create Augmented Matrix
             Matrix matrix = processMatrix(args[1]);
 
             switch (args[0])
@@ -98,21 +96,21 @@ namespace NumericalCalculator
                     //setLog(ge.log);
                     break;
                 case "Gauss Elimination (Back Substitution)":
-                    if (GuassElimintationLinearEquationSolver.Solve(matrix.getMatrix()))
-                        setLog("yeah shit works");
-                    //gje.Evaluate(matrix);
-                    //setLog(gje.log);
+                    GuassElimintationLinearEquationSolver g = new GuassElimintationLinearEquationSolver(matrix.getMatrix());
+                    g.Solve();
+                    for (int i = 0; i < g.m.GetLength(0); i++)
+                    {
+                        g.log += "x(i" + i + ") = " + g.m[i, g.m.GetLength(1)-1] + "\r\n";
+                        
+                    }
+                    setLog(g.log);
                     break;
                 case "LU Decomposition":
                     SuperMatrix sM = new SuperMatrix(matrix.GetRows(), matrix.GetColumns());
                     SuperMatrix A = SuperMatrix.Parse(args[1]);
                     SuperMatrix PLU = A.GetP() * A.L * A.U;
-                    setLog(PLU.ToString());
-
-                    //Decomposition d = new Decomposition();
-                    //d.solve(matrix);
-                    //setLog(d.log);
-                    // do some shit
+                    A.log += "\r\n" + "SOLUTION FOUND!!!" + "\r\n" + PLU.ToString();
+                    setLog(A.log);
                     break;
             }
 

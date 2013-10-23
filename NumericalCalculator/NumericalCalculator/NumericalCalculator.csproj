@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalcObjects\Matrix.cs" />
-    <Compile Include="CalcObjects\MatrixAugmented.cs" />
     <Compile Include="CalcObjects\SuperMatrix.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="Form1.cs">
@@ -59,21 +58,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMethods.cs" />
     <Compile Include="Methods\BaseMethod.cs" />
     <Compile Include="Methods\Bisection.cs" />
-    <Compile Include="Methods\Decomposition.cs" />
-    <Compile Include="Methods\GaussElimination.cs" />
-    <Compile Include="Methods\GaussElimination_Mine.cs" />
     <Compile Include="Methods\GuassElimintationLinearEquationSolver.cs" />
-    <Compile Include="Methods\MatrixDecompositionProgram.cs" />
-    <Compile Include="Methods\Matrix_CalcFunctions.cs" />
-    <Compile Include="Methods\Mullers_Mine.cs" />
     <Compile Include="Methods\Mullers.cs" />
     <Compile Include="Methods\RegulaFalsi.cs" />
     <Compile Include="Methods\Newton.cs" />
-    <Compile Include="Methods\RegulaFalsi_aw.cs" />
-    <Compile Include="Methods\RegulaFalsi_OLD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

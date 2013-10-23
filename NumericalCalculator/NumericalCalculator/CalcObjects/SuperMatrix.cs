@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using NumericalCalculator.Methods;
 
 namespace NumericalCalculator.CalcObjects
 {
-    class SuperMatrix
+    public class SuperMatrix
     {
         public int rows;
         public int cols;
@@ -16,12 +17,18 @@ namespace NumericalCalculator.CalcObjects
         public SuperMatrix U;
         private int[] pi;
         private double detOfP = 1;
+        public String log = "";
 
         public SuperMatrix(int iRows, int iCols)         // Matrix Class constructor
         {
             rows = iRows;
             cols = iCols;
             mat = new double[rows, cols];
+        }
+
+        public void addToLog(String s)
+        {
+            log += s + "\r\n";
         }
 
         public Boolean IsSquare()
@@ -49,6 +56,8 @@ namespace NumericalCalculator.CalcObjects
 
         public void MakeLU()                        // Function for LU decomposition
         {
+            addToLog("Starting LU Decomposition");
+            addToLog("Create L & U Matrices..");
             if (!IsSquare()) throw new MException("The matrix is not square!");
             L = IdentityMatrix(rows, cols);
             U = Duplicate();
@@ -76,7 +85,7 @@ namespace NumericalCalculator.CalcObjects
                     throw new MException("The matrix is singular!");
 
                 pom1 = pi[k]; pi[k] = pi[k0]; pi[k0] = pom1;    // switch two rows in permutation matrix
-
+                addToLog("Switching rows in A: "+k+" & "+k0);
                 for (int i = 0; i < k; i++)
                 {
                     pom2 = L[k, i]; L[k, i] = L[k0, i]; L[k0, i] = pom2;
@@ -87,13 +96,18 @@ namespace NumericalCalculator.CalcObjects
                 for (int i = 0; i < cols; i++)                  // Switch rows in U
                 {
                     pom2 = U[k, i]; U[k, i] = U[k0, i]; U[k0, i] = pom2;
+                    addToLog("Switching rows in U: " + k + " & " + k0);
                 }
 
                 for (int i = k + 1; i < rows; i++)
                 {
                     L[i, k] = U[i, k] / U[k, k];
+                    addToLog("R:" + i + " C:" + k + " = " + U[i, k] + " / " + U[k, k]);
                     for (int j = k; j < cols; j++)
+                    {
                         U[i, j] = U[i, j] - L[i, k] * U[k, j];
+                        addToLog("R:"+i+" C:"+j+" = "+U[i, j]+" - "+L[i, k]+" * "+U[k, j]);
+                    }
                 }
             }
         }
@@ -142,7 +156,7 @@ namespace NumericalCalculator.CalcObjects
         public SuperMatrix GetP()                        // Function returns permutation matrix "P" due to permutation vector "pi"
         {
             if (L == null) MakeLU();
-
+            addToLog("Filling LU matrices..");
             SuperMatrix matrix = ZeroMatrix(rows, cols);
             for (int i = 0; i < rows; i++) matrix[pi[i], i] = 1;
             return matrix;
