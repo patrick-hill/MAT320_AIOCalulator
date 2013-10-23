@@ -91,9 +91,9 @@ namespace NumericalCalculator
             switch (args[0])
             {
                 case "Gauss-Jordan Inverting":
-                    //GaussElimination ge = new GaussElimination();
-                    //ge.Evaluate(matrix.Print());
-                    //setLog(ge.log);
+                    GuassInverting gi = new GuassInverting();
+                    gi.evaluate(matrix);
+                    setLog(gi.log);
                     break;
                 case "Gauss Elimination (Back Substitution)":
                     GuassElimintationLinearEquationSolver g = new GuassElimintationLinearEquationSolver(matrix.getMatrix());

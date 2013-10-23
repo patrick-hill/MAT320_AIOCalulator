@@ -61,6 +61,7 @@
     <Compile Include="Methods\BaseMethod.cs" />
     <Compile Include="Methods\Bisection.cs" />
     <Compile Include="Methods\GuassElimintationLinearEquationSolver.cs" />
+    <Compile Include="Methods\GuassInverting.cs" />
     <Compile Include="Methods\Mullers.cs" />
     <Compile Include="Methods\RegulaFalsi.cs" />
     <Compile Include="Methods\Newton.cs" />
