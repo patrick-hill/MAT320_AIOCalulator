@@ -104,9 +104,14 @@ namespace NumericalCalculator
                     //setLog(gje.log);
                     break;
                 case "LU Decomposition":
-                    Decomposition d = new Decomposition();
-                    d.solve(matrix);
-                    setLog(d.log);
+                    SuperMatrix sM = new SuperMatrix(matrix.GetRows(), matrix.GetColumns());
+                    SuperMatrix A = SuperMatrix.Parse(args[1]);
+                    SuperMatrix PLU = A.GetP() * A.L * A.U;
+                    setLog(PLU.ToString());
+
+                    //Decomposition d = new Decomposition();
+                    //d.solve(matrix);
+                    //setLog(d.log);
                     // do some shit
                     break;
             }
