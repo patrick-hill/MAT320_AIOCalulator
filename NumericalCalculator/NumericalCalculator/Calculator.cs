@@ -97,17 +97,23 @@ namespace NumericalCalculator
                     ge.Evaluate(matrix.Print());
                     setLog(ge.log);
                     break;
-                case "Gauss-Jordan Elimination":
+                case "Gauss-Jordan Inverting":
                     if (GuassElimintationLinearEquationSolver.Solve(matrix.getMatrix()))
                         setLog("yeah shit works");
                     //gje.Evaluate(matrix);
                     //setLog(gje.log);
                     break;
+                case "LU Decomposition":
+                    Decomposition d = new Decomposition();
+                    d.solve(matrix);
+                    setLog(d.log);
+                    // do some shit
+                    break;
             }
 
-            log += "Matrix Printout" + "\r\n";
-            log += matrix.Print();
-            setLog(log);
+            //log += "Matrix Printout" + "\r\n";
+            //log += matrix.Print();
+            //setLog(log);
         }
 
         public Matrix processMatrix(String s)

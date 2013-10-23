@@ -269,14 +269,15 @@
             this.t2MatrixInpu.Name = "t2MatrixInpu";
             this.t2MatrixInpu.Size = new System.Drawing.Size(363, 206);
             this.t2MatrixInpu.TabIndex = 2;
-            this.t2MatrixInpu.Text = "2 -4 6 8 9\r\n6 -2 4 10 19\r\n2 4 -5 1 15\r\n4 2 -1 3 12";
+            this.t2MatrixInpu.Text = "2 8 1 1\r\n4 13 3 -1\r\n-2 -5 -3 3\r\n-6 -18 -1 1";
             // 
             // t2comboBoxMethod
             // 
             this.t2comboBoxMethod.FormattingEnabled = true;
             this.t2comboBoxMethod.Items.AddRange(new object[] {
             "Gauss Elimination (Back Substitution)",
-            "Gauss-Jordan Elimination"});
+            "Gauss-Jordan Inverting",
+            "LU Decomposition"});
             this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 23);
             this.t2comboBoxMethod.Name = "t2comboBoxMethod";
             this.t2comboBoxMethod.Size = new System.Drawing.Size(188, 21);

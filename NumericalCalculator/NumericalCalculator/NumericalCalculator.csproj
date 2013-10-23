@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CalcObjects\Matrix.cs" />
     <Compile Include="CalcObjects\MatrixAugmented.cs" />
+    <Compile Include="CalcObjects\SuperMatrix.cs" />
     <Compile Include="Calculator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -61,9 +62,11 @@
     <Compile Include="IMethods.cs" />
     <Compile Include="Methods\BaseMethod.cs" />
     <Compile Include="Methods\Bisection.cs" />
+    <Compile Include="Methods\Decomposition.cs" />
     <Compile Include="Methods\GaussElimination.cs" />
     <Compile Include="Methods\GaussElimination_Mine.cs" />
     <Compile Include="Methods\GuassElimintationLinearEquationSolver.cs" />
+    <Compile Include="Methods\MatrixDecompositionProgram.cs" />
     <Compile Include="Methods\Matrix_CalcFunctions.cs" />
     <Compile Include="Methods\Mullers_Mine.cs" />
     <Compile Include="Methods\Mullers.cs" />
