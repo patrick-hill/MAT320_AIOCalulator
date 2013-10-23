@@ -7,9 +7,9 @@ namespace NumericalCalculator.CalcObjects
 {
     public class Matrix
     {
-        private string name = null;
-        private double[,] matrix;
-        private int matrixRow, matrixColumn;
+        protected string name = null;
+        protected double[,] matrix;
+        protected int matrixRow, matrixColumn;
 
         public Matrix(int row, int column)
         {

@@ -269,6 +269,7 @@
             this.t2MatrixInpu.Name = "t2MatrixInpu";
             this.t2MatrixInpu.Size = new System.Drawing.Size(363, 206);
             this.t2MatrixInpu.TabIndex = 2;
+            this.t2MatrixInpu.Text = "2 -4 6 8 9\r\n6 -2 4 10 19\r\n2 4 -5 1 15\r\n4 2 -1 3 12";
             // 
             // t2comboBoxMethod
             // 
@@ -278,7 +279,7 @@
             "Gauss-Jordan Elimination"});
             this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 23);
             this.t2comboBoxMethod.Name = "t2comboBoxMethod";
-            this.t2comboBoxMethod.Size = new System.Drawing.Size(107, 21);
+            this.t2comboBoxMethod.Size = new System.Drawing.Size(188, 21);
             this.t2comboBoxMethod.TabIndex = 0;
             // 
             // label8

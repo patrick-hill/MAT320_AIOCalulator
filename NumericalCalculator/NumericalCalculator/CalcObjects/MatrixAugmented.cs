@@ -5,20 +5,31 @@ using System.Text;
 
 namespace NumericalCalculator.CalcObjects
 {
-    // Wrapper class to add the augmented data w/o having to redo the Matrix class.
+    /// <summary>
+    /// Wrapper class to add the augmented data w/o having to redo the Matrix class.
+    /// </summary>
     class MatrixAugmented : Matrix
     {
         private double[,] mAug;
 
+        /// <summary>
+        /// Creates a Matrix w/ augmented data on far right column
+        /// </summary>
+        /// <param name="r"> Number of rows</param>
+        /// <param name="c"> Number of columns</param>
         public MatrixAugmented(int r, int c) : base(r,c)
         {
-            // extra column for augmented data
             mAug = new double[r + 1, c + 1];
         }
 
-        public void addAugment(int r, int c)
+        public double[,] getMatrix()
         {
-            
+            return matrix;
+        }
+
+        public void addAugmentedCell(int row, int col)
+        {
+
         }
     }
 }

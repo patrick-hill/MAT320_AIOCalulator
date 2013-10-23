@@ -63,7 +63,7 @@
     <Compile Include="Methods\Bisection.cs" />
     <Compile Include="Methods\GaussElimination.cs" />
     <Compile Include="Methods\GaussElimination_Mine.cs" />
-    <Compile Include="Methods\GuassJordanElimination.cs" />
+    <Compile Include="Methods\GuassElimintationLinearEquationSolver.cs" />
     <Compile Include="Methods\Matrix_CalcFunctions.cs" />
     <Compile Include="Methods\Mullers_Mine.cs" />
     <Compile Include="Methods\Mullers.cs" />

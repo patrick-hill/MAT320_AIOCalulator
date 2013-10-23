@@ -8,7 +8,7 @@ namespace NumericalCalculator.Methods
 {
     class GuassJordanElimination : BaseMethod
     {
-        public void Evaluate(Matrix matrix)
+        public void Evaluate(MatrixAugmented matrix)
         {
 
         }

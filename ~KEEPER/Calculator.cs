@@ -21,7 +21,6 @@ namespace NumericalCalculator
             this.gui = gui;
         }
         
-        //public void Calculate(String method, String function, String functionDer, String range, String _tolerance)
         public void Calculate(int tab, String[] args)
         {
             this.args = args;
@@ -51,8 +50,6 @@ namespace NumericalCalculator
             double b = double.Parse(ranges[1]);
             double tolerance = double.Parse(_tolerance);
 
-
-
             // Find & run method
             switch (method)
             {
@@ -62,12 +59,12 @@ namespace NumericalCalculator
                     setLog(bis.log);
                     break;
                 case "Regula Falsi":
-                    RegulaFalsi rf = new RegulaFalsi();
+                    RegulaFalsiOLD rf = new RegulaFalsiOLD();
                     rf.Evaluate(exp, a, b, tolerance);
                     setLog(rf.log);
                     break;
                 case "Newtons Method":
-                    if (functionDer.Equals(""))
+                    if (functionDer == null)
                     {
                         log += "ERROR: DERIVATION NEEDED!" + "\r\n";
                         setLog(log);
@@ -79,7 +76,7 @@ namespace NumericalCalculator
                     break;
                 case "Mullers Method":
                     Mullers m = new Mullers();
-                    m.Evaluate2(exp, a, b, tolerance);
+                    m.Evaluate(exp, a, b, tolerance);
                     setLog(m.log);
                     break;
             }
@@ -88,29 +85,28 @@ namespace NumericalCalculator
         public void doMatrix()
         {
             // Create Augmented Matrix
-            Matrix matrix = processMatrix(args[1]);
+            MatrixAugmented mAug = processMatrix(args[1]);
 
             switch (args[0])
             {
                 case "Gauss Elimination (Back Substitution)":
                     GaussElimination ge = new GaussElimination();
-                    ge.Evaluate(matrix.Print());
+                    ge.Evaluate(mAug);
                     setLog(ge.log);
                     break;
                 case "Gauss-Jordan Elimination":
-                    if (GuassElimintationLinearEquationSolver.Solve(matrix.getMatrix()))
-                        setLog("yeah shit works");
-                    //gje.Evaluate(matrix);
-                    //setLog(gje.log);
+                    GuassJordanElimination gje = new GuassJordanElimination();
+                    gje.Evaluate(mAug);
+                    setLog(gje.log);
                     break;
             }
 
             log += "Matrix Printout" + "\r\n";
-            log += matrix.Print();
+            log += mAug.Print();
             setLog(log);
         }
 
-        public Matrix processMatrix(String s)
+        public MatrixAugmented processMatrix(String s)
         {
             String[] rows = s.Split('\n');
             String[] column = rows[0].Split(' ');
