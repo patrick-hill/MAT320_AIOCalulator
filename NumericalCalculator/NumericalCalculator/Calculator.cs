@@ -112,6 +112,18 @@ namespace NumericalCalculator
                     A.log += "\r\n" + "SOLUTION FOUND!!!" + "\r\n" + PLU.ToString();
                     setLog(A.log);
                     break;
+                case "Largest Eigen Value":
+                    PowerMethodEigenValue powerMethodLargest = new PowerMethodEigenValue();
+                    powerMethodLargest.Evaluate(matrix);
+                    setLog(powerMethodLargest.log);
+                    break;
+                case "Smallest Eigen Value":
+                    PowerMethodEigenValue powerMethodSmallest = new PowerMethodEigenValue();
+                    GuassInverting invertingMethod = new GuassInverting();
+                    Matrix m = invertingMethod.evaluate(matrix);
+                    powerMethodSmallest.Evaluate(m);
+                    setLog("INVERTING\r\n" + invertingMethod.log + "\r\nFinding smallest eigenvalue\r\n" + powerMethodSmallest.log);
+                    break;
             }
 
             //log += "Matrix Printout" + "\r\n";

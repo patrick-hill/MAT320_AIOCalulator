@@ -277,7 +277,9 @@
             this.t2comboBoxMethod.Items.AddRange(new object[] {
             "Gauss Elimination (Back Substitution)",
             "Gauss-Jordan Inverting",
-            "LU Decomposition"});
+            "LU Decomposition",
+            "Largest Eigen Value",
+            "Smallest Eigen Value"});
             this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 23);
             this.t2comboBoxMethod.Name = "t2comboBoxMethod";
             this.t2comboBoxMethod.Size = new System.Drawing.Size(188, 21);

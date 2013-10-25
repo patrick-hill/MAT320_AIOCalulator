@@ -9,7 +9,7 @@ namespace NumericalCalculator.Methods
     class GuassInverting : BaseMethod
     {
 
-        public void evaluate(Matrix m)
+        public Matrix evaluate(Matrix m)
         {
             int i, j, k, n = m.GetColumns();
             double[,] a = new double[10, 10];
@@ -58,6 +58,7 @@ namespace NumericalCalculator.Methods
             }
 
             printStep(a, n);
+            return createMatrix(a,n);
         }
 
         private void printStep(double[,] a, int n)
@@ -75,6 +76,20 @@ namespace NumericalCalculator.Methods
                 result += "\r\n";
             }
             addToLog(result + "\r\n");
+        }
+
+        private Matrix createMatrix(double[,] d, int n)
+        {
+            Matrix m = new Matrix(n,n);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = n; j < 2 * n; j++)
+                {
+                    m.AddCell(i, j/2, d[i, j]);
+                }
+            }
+
+            return m;
         }
     }
 }
