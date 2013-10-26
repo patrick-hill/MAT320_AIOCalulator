@@ -106,16 +106,29 @@ namespace NumericalCalculator
                     setLog(g.log);
                     break;
                 case "LU Decomposition":
-                    /// OLD
-                    //SuperMatrix sM = new SuperMatrix(matrix.GetRows(), matrix.GetColumns());
-                    //SuperMatrix A = SuperMatrix.Parse(args[1]);
-                    //SuperMatrix PLU = A.GetP() * A.L * A.U;
-                    //A.log += "\r\n" + "SOLUTION FOUND!!!" + "\r\n" + PLU.ToString();
-                    //setLog(A.log);
+                    Decomposition dec = new Decomposition();
+                    // extract rhs column
+                    double[,] rhs = new double[1, matrix.GetRows()];
+                    for (int i = 0; i < matrix.getMatrix().GetLength(0); i++)
+                    {
+                        rhs[0, i] = matrix.GetCell(i, matrix.GetColumns()-1);
+                    }
+                    // remove rhs column
+                    double[,] ma = new double[matrix.GetRows(), matrix.GetRows()];
+                    for (int i = 0; i < ma.GetLength(0); i++)
+                    {
+                        for (int j = 0; j < ma.GetLength(1); j++)
+                        {
+                            ma[i, j] = matrix.GetCell(i, j);
+                        }
+                    }
+                    dec.solve(ma, rhs);
+                    setLog(dec.log + "\r\n" + "FINISHED");
+                    break;
+                case "Crout's Method (LU Replacement)":
                     CroutsMethod cm = new CroutsMethod();
                     cm.solve(matrix.getMatrix());
                     setLog(cm.log);
-
                     break;
                 case "Largest Eigen Value":
                     PowerMethodEigenValue powerMethodLargest = new PowerMethodEigenValue();

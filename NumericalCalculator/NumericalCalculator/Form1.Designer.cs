@@ -269,7 +269,7 @@
             this.t2MatrixInpu.Name = "t2MatrixInpu";
             this.t2MatrixInpu.Size = new System.Drawing.Size(363, 206);
             this.t2MatrixInpu.TabIndex = 2;
-            this.t2MatrixInpu.Text = "2 8 1 1\r\n4 13 3 -1\r\n-2 -5 -3 3\r\n-6 -18 -1 1";
+            this.t2MatrixInpu.Text = "4 3 1 1\r\n3 4 1 -2\r\n8 3 1 4";
             // 
             // t2comboBoxMethod
             // 
@@ -278,6 +278,7 @@
             "Gauss Elimination (Back Substitution)",
             "Gauss-Jordan Inverting",
             "LU Decomposition",
+            "Crout\'s Method (LU Replacement)",
             "Largest Eigen Value",
             "Smallest Eigen Value"});
             this.t2comboBoxMethod.Location = new System.Drawing.Point(6, 23);

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CalcObjects\Matrix.cs" />
     <Compile Include="Methods\CroutsMethod.cs" />
+    <Compile Include="Methods\Decomposition.cs" />
     <Compile Include="Methods\PowerMethodEigenValue.cs" />
     <Compile Include="Methods\SuperMatrix.cs" />
     <Compile Include="Calculator.cs" />
