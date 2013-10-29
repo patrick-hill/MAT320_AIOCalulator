@@ -6,11 +6,11 @@ using NumericalCalculator.CalcObjects;
 
 namespace NumericalCalculator.Methods
 {
-    public class GuassElimintationLinearEquationSolver : BaseMethod
+    public class GuassEliminationBackSubstitution : BaseMethod
     {
         public double[,] m;
 
-        public GuassElimintationLinearEquationSolver(double[,] m)
+        public GuassEliminationBackSubstitution(double[,] m)
         {
             this.m = m;
         }

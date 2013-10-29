@@ -96,7 +96,7 @@ namespace NumericalCalculator
                     setLog(gi.log);
                     break;
                 case "Gauss Elimination (Back Substitution)":
-                    GuassElimintationLinearEquationSolver g = new GuassElimintationLinearEquationSolver(matrix.getMatrix());
+                    GuassEliminationBackSubstitution g = new GuassEliminationBackSubstitution(matrix.getMatrix());
                     g.Solve();
                     for (int i = 0; i < g.m.GetLength(0); i++)
                     {
