@@ -276,6 +276,7 @@
             this.t2comboBoxMethod.FormattingEnabled = true;
             this.t2comboBoxMethod.Items.AddRange(new object[] {
             "Gauss Elimination (Back Substitution)",
+            "Gauss Jordan Elimination",
             "Gauss-Jordan Inverting",
             "LU Decomposition",
             "Crout\'s Method (LU Replacement)",

@@ -105,6 +105,11 @@ namespace NumericalCalculator
                     }
                     setLog(g.log);
                     break;
+                case "Gauss Jordan Elimination":
+                    GaussElimination gaussElimination = new GaussElimination(matrix.getMatrix());
+                    gaussElimination.Solve2();
+                    setLog(gaussElimination.log);
+                    break;
                 case "LU Decomposition":
                     Decomposition dec = new Decomposition();
                     // extract rhs column
