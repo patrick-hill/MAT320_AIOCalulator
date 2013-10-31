@@ -11,6 +11,7 @@ namespace NumericalCalculator.CalcObjects
         protected double[,] matrix;
         protected int matrixRow, matrixColumn;
 
+        public Matrix() { }
         public Matrix(int row, int column)
         {
             matrixRow = row;
@@ -74,6 +75,44 @@ namespace NumericalCalculator.CalcObjects
             }
 
             return s;
+        }
+
+        public String PrettyPrint()
+        {
+            String s = null;
+            for (int i = 0; i < matrixRow; i++)
+            {
+                for (int j = 0; j < matrixColumn; j++)
+                {
+                    s += RoundDigit(matrix[i, j], 4);
+                    s += "\t";
+                }
+                s += "\r\n";
+            }
+
+            return s;
+        }
+
+        public Matrix MakeMatrixFromArray(double[,] array)
+        {
+            Matrix matrix = new Matrix(array.GetLength(0), array.GetLength(1));
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    matrix.AddCell(i, j, array[i, j]);
+                }
+            }
+            return matrix;
+        }
+
+        public double RoundDigit(double d, int digits)
+        {
+            if (d == 0)
+                return 0;
+
+            double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(d))) + 1);
+            return scale * Math.Round(d / scale, digits);
         }
     }
 }

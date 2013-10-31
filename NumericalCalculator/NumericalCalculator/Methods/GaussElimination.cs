@@ -34,10 +34,12 @@ namespace NumericalCalculator.Methods
                     }
                 }
             }
+
             for (i = 0; i < n; i++)
             {
                 a[i, n] = a[i, n] / a[i, i];
             }
+
             string lines = "";
             for (i = 0; i < n; i++)
             {
@@ -45,8 +47,10 @@ namespace NumericalCalculator.Methods
                 {
                     if (i != j && j < n)
                         a[i, j] = 0;
-                    lines += Math.Round(a[i, j],3) + "\t";
+                    //addToLog(Math.Round(a[i, j], 3) + tab);
+                    lines += Math.Round(a[i, j], 3) + "\t";
                 }
+                //addToLog(newLine);
                 lines += ("\r\n");
             }
             addToLog(lines + "\r\n");

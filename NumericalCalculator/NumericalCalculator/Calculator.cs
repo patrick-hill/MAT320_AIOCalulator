@@ -21,7 +21,6 @@ namespace NumericalCalculator
             this.gui = gui;
         }
         
-        //public void Calculate(String method, String function, String functionDer, String range, String _tolerance)
         public void Calculate(int tab, String[] args)
         {
             this.args = args;
@@ -50,7 +49,6 @@ namespace NumericalCalculator
             double a = double.Parse(ranges[0]);
             double b = double.Parse(ranges[1]);
             double tolerance = double.Parse(_tolerance);
-
 
             // Find & run method
             switch (method)
@@ -111,24 +109,25 @@ namespace NumericalCalculator
                     setLog(gaussElimination.log);
                     break;
                 case "LU Decomposition":
-                    Decomposition dec = new Decomposition();
-                    // extract rhs column
-                    double[,] rhs = new double[1, matrix.GetRows()];
-                    for (int i = 0; i < matrix.getMatrix().GetLength(0); i++)
-                    {
-                        rhs[0, i] = matrix.GetCell(i, matrix.GetColumns()-1);
-                    }
-                    // remove rhs column
-                    double[,] ma = new double[matrix.GetRows(), matrix.GetRows()];
-                    for (int i = 0; i < ma.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < ma.GetLength(1); j++)
-                        {
-                            ma[i, j] = matrix.GetCell(i, j);
-                        }
-                    }
-                    dec.solve(ma, rhs);
-                    setLog(dec.log + "\r\n" + "FINISHED");
+                    //Decomposition dec = new Decomposition();
+                    //// extract rhs column
+                    //double[,] rhs = new double[1, matrix.GetRows()];
+                    //for (int i = 0; i < matrix.getMatrix().GetLength(0); i++)
+                    //{
+                    //    rhs[0, i] = matrix.GetCell(i, matrix.GetColumns()-1);
+                    //}
+                    //// remove rhs column
+                    //double[,] ma = new double[matrix.GetRows(), matrix.GetRows()];
+                    //for (int i = 0; i < ma.GetLength(0); i++)
+                    //{
+                    //    for (int j = 0; j < ma.GetLength(1); j++)
+                    //    {
+                    //        ma[i, j] = matrix.GetCell(i, j);
+                    //    }
+                    //}
+                    //dec.solve(ma, rhs);
+                    //setLog(dec.log + "\r\n" + "FINISHED");
+                    setLog("Shit is broken... yeah");
                     break;
                 case "Crout's Method (LU Replacement)":
                     CroutsMethod cm = new CroutsMethod();
