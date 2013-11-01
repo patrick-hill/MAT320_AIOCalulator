@@ -50,6 +50,11 @@ namespace NumericalCalculator.Methods
                 lines += ("\r\n");
             }
             addToLog(lines + "\r\n");
+
+            for (i = 0; i < n; i++)
+            {
+                addToLog("x[" + i + "]= " + Math.Round(a[i,n]));
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ namespace NumericalCalculator
             functionDer = parseSpecialCases(functionDer);
 
             Expression exp = new Expression(function);
-            Expression expDer = null;
+            Expression expDer = new Expression(functionDer);
             String[] ranges = range.Split(',');
             double a = double.Parse(ranges[0]);
             double b = double.Parse(ranges[1]);
@@ -82,6 +82,17 @@ namespace NumericalCalculator
                     setLog(m.log);
                     break;
             }
+        }
+
+        public String[] replaceRanges(String[] ranges)
+        {
+            String[] copy = ranges;
+            for (int i = 0; i < ranges.Length; i++)
+            {
+                if (copy[i].Contains("pie"))
+                    copy[i].Replace("pie", Math.PI + "");
+            }
+            return copy;
         }
 
         public void doMatrix()
