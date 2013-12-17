@@ -5,8 +5,8 @@ using System.Text;
 using NCalc;
 using System.Collections;
 using System.Diagnostics;
-using NumericalCalculator.Methods;
 using NumericalCalculator.CalcObjects;
+using NumericalCalculator.Methods;
 
 namespace NumericalCalculator
 {
@@ -120,25 +120,9 @@ namespace NumericalCalculator
                     setLog(gaussElimination.log);
                     break;
                 case "LU Decomposition":
-                    //Decomposition dec = new Decomposition();
-                    //// extract rhs column
-                    //double[,] rhs = new double[1, matrix.GetRows()];
-                    //for (int i = 0; i < matrix.getMatrix().GetLength(0); i++)
-                    //{
-                    //    rhs[0, i] = matrix.GetCell(i, matrix.GetColumns()-1);
-                    //}
-                    //// remove rhs column
-                    //double[,] ma = new double[matrix.GetRows(), matrix.GetRows()];
-                    //for (int i = 0; i < ma.GetLength(0); i++)
-                    //{
-                    //    for (int j = 0; j < ma.GetLength(1); j++)
-                    //    {
-                    //        ma[i, j] = matrix.GetCell(i, j);
-                    //    }
-                    //}
-                    //dec.solve(ma, rhs);
-                    //setLog(dec.log + "\r\n" + "FINISHED");
-                    setLog("Shit is broken... yeah");
+                    Decomposition decomposition = new Decomposition(matrix.getMatrix());
+                    decomposition.solve();
+                    setLog(decomposition.log);
                     break;
                 case "Crout's Method (LU Replacement)":
                     CroutsMethod cm = new CroutsMethod();

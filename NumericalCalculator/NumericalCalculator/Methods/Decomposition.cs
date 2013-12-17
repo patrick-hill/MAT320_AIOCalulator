@@ -2,114 +2,154 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NumericalCalculator.CalcObjects;
 
 namespace NumericalCalculator.Methods
 {
     class Decomposition : BaseMethod
     {
-        public void solve(double[,] ma, double[,] RHS)
-        {
-            int size = ma.GetLength(0);
-            // RHS is really a single column
-            double[,] a = ma;
-            double[,] l = new double[10, 10], u = new double[10, 10];
-            double[] y = new double[10], b = new double[10], x = new double[10];
-            int k = 0, i = 0, jk = 0;
+        double[,] matrix;
 
-            for (i = 0; i < 10; i++)
-                for (k = 0; k < 10; k++)
-                {
-                    u[k, i] = 0;
-                    l[k, i] = 0;
-                    if(i<a.GetLength(0) && k<a.GetLength(1))
-                        a[k, i] = 0;
-                }
-            k = 0;
-            for (i = 0; i < RHS.Length; i++)
+        public Decomposition(double[,] m)
+        {
+            this.matrix = m;
+        }
+
+        public void solve()
+        {
+            double[,] a = matrix,
+                l = new double[10, 10],
+                u = new double[10, 10];
+            double[] y = new double[10], b = new double[10], x = new double[10];
+
+            int ns = a.GetLength(0), k = 0, i = 0, jk = 0;
+
+            // these are the RHS values
+            for (k = 0; k < ns; k++)
             {
-                b[k] = RHS[0,i];
+                b[k] = a[k, ns];
             }
-            i = 0;
-            for (i = 0; i < size; i++)
+
+            //sets up first row of u  AND  diagonal 1's in L
+            for (i = 0; i < ns; i++)
             {
                 u[0, i] = a[0, i];
                 l[i, i] = 1;
             }
-            k = 0;
-            for (k = 1; k < size; k++)
+
+            // first column of l (ell)
+            for (k = 1; k < ns; k++)
             {
-                l[k, 1] = a[k, 1] / u[0, 0];
-            }
-            jk = 1;
-            for (i = k; i < size; i++)
-            {
-                u[jk, i] = a[jk, i] - l[i - 1, jk] * u[jk - 1, i];
+                l[k, 0] = a[k, 0] / u[0, 0];  //changed from original
             }
 
-            for (i = k + 1; i < size; i++)
+
+            jk = 1;  //jk is a row incrementer
+            //second row u
+            for (i = jk; i < ns; i++)    //changed to jk as per original
             {
-                l[i, jk] = (a[i, jk] - l[i, jk - 1] * u[jk - 1, i]) / u[jk, jk];
+                u[jk, i] = a[jk, i] - l[jk, jk - 1] * u[jk - 1, i];
             }
+
+            //second column l (ell)
+            for (i = 2; i < ns; i++)
+            {
+                l[i, jk] = (a[i, jk] - l[i, jk - 1] * u[jk - 1, jk]) / u[jk, jk];
+            }
+
+
+
             jk = 2;
-            for (i = k; i < size; i++)
+            for (i = 2; i < ns; i++)
             {
-                u[jk, i] = a[jk, i] - l[i - 1, jk] * u[jk - 1, i] - l[i - 2, jk] * u[jk - 2, i];
+                u[jk, i] = a[jk, i] - l[jk, 0] * u[0, i] - l[2, 1] * u[1, i];
             }
-            for (i = k + 1; i < size; i++)
-            {
-                l[i, jk] = (a[i, jk] - l[i, jk - 1] * u[jk - 1, i] - l[i, jk - 2] * u[jk - 2, i]) / u[jk, jk];
-            }
-            jk = 3;
-            for (i = k; i < size; i++)
-            {
-                u[jk, i] = a[jk, i] - l[i - 1, jk] * u[jk - 1, i] - l[i - 2, jk] * u[jk - 2, i] - l[i - 3, jk] * u[jk - 3, i];
-            }
-            // turned the hard coded section below into a dynamic system
-            for (i = 0; i < y.Length; i++)
-            {
-                if (i == 0) y[i] = b[i];
-                if (i == 1) y[i] = b[i] - l[i, 0] * y[0];
-                if (i == 2) y[i] = b[i] - l[i, 0] * y[0] - l[i, i - 1] * y[i - 1];
-                if (i == 3) y[i] = b[i] - y[0] - l[i, 1] * y[1] - l[i,2] * y[2];
-            }
-            // calculate x's
-            for (i = y.Length-1; i > -1; i--)
-            {
-                if (i == 3) x[i] = y[i] / u[i, i];
-                if (i == 2) x[i] = (y[2] - u[2, 3] * x[3]) / u[2, 2];
-                if (i == 1) x[i] = (y[i] - u[i, 3] * x[3] - u[i, 2] * x[2]) / u[i, i];
-                if (i == 0) x[i] = (y[i] - u[i, 3] * x[3] - u[i, 2] * x[2] - u[i, 1] * x[1]) / u[i, i];
-            }
-            //y[0] = b[0];
-            //y[1] = (b[1] - l[1, 0] * y[0]);
-            //y[2] = (b[2] - l[2, 0] * y[0] - l[2, 1] * y[1]);
-            //y[3] = b[3] - l[3, 0] * y[0] - l[3, 1] * y[1] - l[3, 2] * y[2];
-            //x[3] = y[3] / u[3, 3];
-            //x[2] = (y[2] - u[2, 3] * x[3]) / u[2, 2];
-            //x[1] = (y[1] - u[1, 3] * x[3] - u[1, 2] * x[2]) / u[1, 1];
-            //x[0] = (y[0] - u[0, 3] * x[3] - u[0, 2] * x[2] - u[0, 1] * x[1]) / u[0, 0];
-            addToLog(newLine + "L Matrix is:" + newLine);
-            for (i = 0; i < size; i++)
-            {
-                for (k = 0; k < size; k++)
-                {
-                    addToLog(l[i, k] + tab);
-                }
-            }
-            addToLog(newLine + "U Matrix is:" + newLine);
 
-            for (i = 0; i < size; i++)
+
+
+            // last l (ell)
+            for (i = 3; i < ns; i++)
             {
-                for (k = 0; k < size; k++)
+                l[i, jk] = (a[i, jk] - l[i, jk - 2] * u[0, i - 1] - l[i, jk - 1] * u[jk - 1, i - 1]) / u[jk, jk];
+            }
+
+
+            //last u
+            jk = 3;
+            for (i = 3; i < ns; i++)
+            {
+                u[jk, i] = a[jk, i] - l[jk, 0] * u[0, jk] - l[jk, 1] * u[jk - 2, i] - l[jk, i - 1] * u[jk - 1, i];
+            }
+
+
+
+            y[0] = b[0];
+            y[1] = (b[1] - l[1, 0] * y[0]);
+            y[2] = (b[2] - l[2, 0] * y[0] - l[2, 1] * y[1]);
+
+            y[3] = b[3] - l[3, 0] * y[0] - l[3, 1] * y[1] - l[3, 2] * y[2];
+
+            if (ns > 3)
+            {
+                x[3] = y[3] / u[3, 3];
+                x[2] = (y[2] - u[2, 3] * x[3]) / u[2, 2];
+                x[1] = (y[1] - u[1, 3] * x[3] - u[1, 2] * x[2]) / u[1, 1];
+                x[0] = (y[0] - u[0, 3] * x[3] - u[0, 2] * x[2] - u[0, 1] * x[1]) / u[0, 0];
+            }
+            else
+            {
+                x[2] = y[2] / u[2, 2];
+                x[1] = (y[1] - u[1, 2] * x[2]) / u[1, 1];
+                x[0] = (y[0] - u[0, 2] * x[2] - u[0, 1] * x[1]) / u[0, 0];
+            }
+
+            string matrixRow = "";
+
+            //Original Matrix
+            for (i = 0; i < ns; i++)
+            {
+                for (k = 0; k < ns; k++)
                 {
-                    addToLog(u[i, k] + tab);
+                    matrixRow += a[i, k] + "\t";
                 }
+                matrixRow += "\t\t" + b[i] + "\r\n";
             }
-            for (i = 0; i < size; i++)
+            addToLog("Original Matrix");
+            addToLog(matrixRow);
+            matrixRow = "";
+
+            //Final L Matrix
+            for (i = 0; i < ns; i++)
             {
-                addToLog("The vale of x sub " + i + " is: " + b[i]);
-                //Printf(“ The value of x sub “ number “ is “ number) i, xl[i];
+                for (k = 0; k < ns; k++)
+                {
+                    matrixRow += l[i, k] + "\t";
+                }
+                matrixRow += "\r\n";
             }
+            addToLog("Final L Matrix");
+            addToLog(matrixRow);
+            matrixRow = "";
+
+            //Final U Matrix
+            for (i = 0; i < ns; i++)
+            {
+                for (k = 0; k < ns; k++)
+                {
+                    matrixRow += u[i, k] + "\t";
+                }
+                matrixRow += "\r\n";
+            }
+            addToLog("Final U Matrix");
+            addToLog(matrixRow);
+            matrixRow = "";
+
+            for (i = 0; i < ns; i++)
+            {
+                addToLog("x" + i + " = " + x[i]);
+            }
+
         }
+
     }
 }
